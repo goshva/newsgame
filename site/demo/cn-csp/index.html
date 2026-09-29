@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; frame-src 'self'; connect-src 'self'; img-src 'self' data:; font-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
+<meta name="robots" content="noindex">
+<title>四条高铁新线开通 — 铁路资讯演示站</title>
+<link rel="stylesheet" href="../demo.css">
+<link rel="stylesheet" href="page.css">
+</head>
+<body>
+<div class="ribbon" lang="ru"><span>Демо интеграции NewsGame: страница со строгой Content-Security-Policy. Это макет, а не сайт издания.</span><a href="#integration">Как встроено ↓</a><a href="../../games/">Все игры</a></div>
+<header class="mast"><div class="name">铁路资讯<span>演示站</span></div><div class="date">2026年9月28日</div></header>
+<nav class="menu" aria-label="栏目"><span>要闻</span><span>高铁</span><span>城市</span><span>科技</span></nav>
+<article>
+  <div class="rubric">交通</div>
+  <h1>四段高铁同日开通，全国高铁网络再扩容</h1>
+  <div class="byline">演示文章 · 为展示嵌入效果而撰写的摘要</div>
+  <div class="figure" aria-hidden="true">图片</div>
+  <p>9月28日，雄安至商丘、西安至安康、宜昌至兴山、哈尔滨至伊春四段高铁开通运营。</p>
+  <p>雄安至商丘段正线全长552公里，最快2小时27分钟可达；西安至安康段全长171公里，穿越秦岭，两端最快45分钟。宜昌至兴山高铁全长101公里，设计时速350公里。</p>
+  <p>全长318公里的哈尔滨至伊春段是我国最北的高铁，两地铁路旅行时间由约7小时缩短至约2小时。截至2025年底，全国高铁运营里程超过5万公里。</p>
+  <p class="source">资料来源：<a href="https://english.news.cn/20260928/00845c1a8f974b1881671deabe0d07a3/c.html" target="_blank" rel="noopener">新华社（英文）</a></p>
+
+  <!-- NewsGame -->
+  <div class="news-game"
+       data-placement="article-end"
+       data-article-id="cn-hsr-lines"
+       data-lang="zh-CN"></div>
+  <script async src="../../widget/v1.js" data-site="demo-cn-csp"></script>
+  <!-- /NewsGame -->
+</article>
+<aside class="related"><h2>相关阅读</h2><ul><li>前八个月全国铁路旅客发送量创新高</li><li>全国科普月：超过36万场活动</li></ul></aside>
+
+<section class="panel" id="integration" lang="ru" aria-label="Интеграция">
+  <h2>Способ: страница со строгой CSP</h2>
+  <p>На этой странице действует политика безопасности без <code>'unsafe-inline'</code>: запрещены встроенные скрипты и стили, внешние домены и формы. Виджет работает, потому что loader — внешний файл, стили тизера подключаются через constructable stylesheets, а высоту iframe он задаёт через CSSOM. Игра не использует ни шрифтов, ни CDN, ни аналитики извне.</p>
+  <pre><code>Content-Security-Policy:
+  default-src 'self';
+  script-src 'self';
+  style-src 'self';
+  frame-src 'self';
+  connect-src 'self';
+  img-src 'self' data:;
+  base-uri 'none'; form-action 'none'; object-src 'none'</code></pre>
+  <p>Для боевого подключения издатель добавляет домен платформы в три директивы:</p>
+  <pre><code>script-src  'self' https://goshva.github.io;
+frame-src   'self' https://goshva.github.io;
+connect-src 'self' https://goshva.github.io;</code></pre>
+  <p>В Китае вместо GitHub Pages нужен хостинг внутри страны через местного партнёра, домен в CSP меняется на него.</p>
+  <h3>Ссылки</h3>
+  <div class="links">
+    <a href="../../games/cn-hsr-lines/">打开游戏（中文）</a>
+    <a href="../../games/cn-hsr-lines/?lang=en">Open the game (EN)</a>
+    <a href="../../games/cn-hsr-lines/game.json">game.json</a>
+    <a href="../../catalog.json">catalog.json</a>
+  </div>
+  <h3>События виджета</h3>
+  <ul class="log" id="ng-log"><li class="empty">Прокрутите до блока игры и нажмите кнопку.</li></ul>
+</section>
+<script src="../panel.js"></script>
+</body>
+</html>

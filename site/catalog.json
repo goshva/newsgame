@@ -1,43 +1,229 @@
 {
   "version": 1,
   "sites": {
-    "demo-us": { "enabled": true },
-    "demo-cis": { "enabled": true },
-    "demo-in": { "enabled": true },
-    "demo-cn": { "enabled": true },
-    "demo-eu": { "enabled": true }
+    "demo-us": {
+      "enabled": true
+    },
+    "demo-cis": {
+      "enabled": true
+    },
+    "demo-in": {
+      "enabled": true
+    },
+    "demo-cn": {
+      "enabled": true
+    },
+    "demo-eu": {
+      "enabled": true
+    },
+    "demo-cis-spa": {
+      "enabled": true
+    },
+    "demo-in-sponsor": {
+      "enabled": true
+    },
+    "demo-cn-csp": {
+      "enabled": true
+    },
+    "demo-eu-consent": {
+      "enabled": true
+    }
   },
   "games": {
     "us-elias-2-24b": {
-      "enabled": true, "path": "games/us-elias-2-24b/", "expires": "2026-12-31", "minutes": 1,
+      "enabled": true,
+      "path": "games/us-elias-2-24b/",
+      "expires": "2026-12-31",
+      "minutes": 1,
       "teaser": {
-        "en": { "label": "Play the story", "title": "Grow a newborn planet", "text": "Elias 2-24 b is less than a million years old. Can you help it reach the mass of Jupiter?", "cta": "Play · 1 min", "note": "No sign-up · sound off" }
+        "en": {
+          "label": "Play the story",
+          "title": "Grow a newborn planet",
+          "text": "Elias 2-24 b is less than a million years old. Can you help it reach the mass of Jupiter?",
+          "cta": "Play · 1 min",
+          "note": "No sign-up · sound off"
+        }
       }
     },
     "cis-gref-ai-race": {
-      "enabled": true, "path": "games/cis-gref-ai-race/", "expires": "2026-11-30", "minutes": 1,
+      "enabled": true,
+      "path": "games/cis-gref-ai-race/",
+      "expires": "2026-11-30",
+      "minutes": 1,
       "teaser": {
-        "ru": { "label": "Игра по теме", "title": "ИИ-гонка: верю / не верю", "text": "Отличите факты из статьи от выдумки за одну минуту.", "cta": "Играть · 1 мин", "note": "Без регистрации · без звука" }
+        "ru": {
+          "label": "Игра по теме",
+          "title": "ИИ-гонка: верю / не верю",
+          "text": "Отличите факты из статьи от выдумки за одну минуту.",
+          "cta": "Играть · 1 мин",
+          "note": "Без регистрации · без звука"
+        }
       }
     },
     "in-ind-wi-odi1": {
-      "enabled": true, "path": "games/in-ind-wi-odi1/", "expires": "2026-10-31", "minutes": 2,
+      "enabled": true,
+      "path": "games/in-ind-wi-odi1/",
+      "expires": "2026-10-31",
+      "minutes": 2,
       "teaser": {
-        "en": { "label": "Play the story", "title": "Chase 296", "text": "West Indies set 296. Kohli and Gill chased it down with 50 balls to spare. Can you?", "cta": "Play · 2 min", "note": "No sign-up · sound off" },
-        "hi": { "label": "ख़बर पर खेल", "title": "296 का पीछा करो", "text": "वेस्टइंडीज़ ने 296 का लक्ष्य दिया। क्या आप हासिल कर पाएँगे?", "cta": "खेलें · 2 मिनट", "note": "बिना साइन-अप · आवाज़ बंद" }
+        "en": {
+          "label": "Play the story",
+          "title": "Chase 296",
+          "text": "West Indies set 296. Kohli and Gill chased it down with 50 balls to spare. Can you?",
+          "cta": "Play · 2 min",
+          "note": "No sign-up · sound off"
+        },
+        "hi": {
+          "label": "ख़बर पर खेल",
+          "title": "296 का पीछा करो",
+          "text": "वेस्टइंडीज़ ने 296 का लक्ष्य दिया। क्या आप हासिल कर पाएँगे?",
+          "cta": "खेलें · 2 मिनट",
+          "note": "बिना साइन-अप · आवाज़ बंद"
+        }
       }
     },
     "cn-science-month": {
-      "enabled": true, "path": "games/cn-science-month/", "expires": "2026-11-30", "minutes": 2,
+      "enabled": true,
+      "path": "games/cn-science-month/",
+      "expires": "2026-11-30",
+      "minutes": 2,
       "teaser": {
-        "zh": { "label": "新闻小游戏", "title": "猜数字：全国科普月", "text": "今年科普月举办了多少场活动？全国有多少家科技馆？来猜一猜。", "cta": "开始 · 2 分钟", "note": "无需注册 · 无声音" },
-        "en": { "label": "Play the story", "title": "Guess the number: China's science month", "text": "How many science activities? How many museums? Guess the numbers from the story.", "cta": "Play · 2 min", "note": "No sign-up · sound off" }
+        "zh": {
+          "label": "新闻小游戏",
+          "title": "猜数字：全国科普月",
+          "text": "今年科普月举办了多少场活动？全国有多少家科技馆？来猜一猜。",
+          "cta": "开始 · 2 分钟",
+          "note": "无需注册 · 无声音"
+        },
+        "en": {
+          "label": "Play the story",
+          "title": "Guess the number: China's science month",
+          "text": "How many science activities? How many museums? Guess the numbers from the story.",
+          "cta": "Play · 2 min",
+          "note": "No sign-up · sound off"
+        }
       }
     },
     "eu-eucys-2026": {
-      "enabled": true, "path": "games/eu-eucys-2026/", "expires": "2026-11-30", "minutes": 1,
+      "enabled": true,
+      "path": "games/eu-eucys-2026/",
+      "expires": "2026-11-30",
+      "minutes": 1,
       "teaser": {
-        "en": { "label": "Play the story", "title": "Young scientist memory", "text": "Over 140 young scientists met at EUCYS 2026. How well do you know the facts?", "cta": "Play · 1 min", "note": "No sign-up · no cookies" }
+        "en": {
+          "label": "Play the story",
+          "title": "Young scientist memory",
+          "text": "Over 140 young scientists met at EUCYS 2026. How well do you know the facts?",
+          "cta": "Play · 1 min",
+          "note": "No sign-up · no cookies"
+        }
+      }
+    },
+    "us-crew13-roster": {
+      "enabled": true,
+      "path": "games/us-crew13-roster/",
+      "expires": "2026-10-15",
+      "minutes": 2,
+      "teaser": {
+        "en": {
+          "label": "Play the story",
+          "title": "Crew-13: mission briefing",
+          "text": "The launch moved after a leak on Dragon. Seat the crew and answer three questions.",
+          "cta": "Play · 2 min",
+          "note": "No sign-up · sound off"
+        }
+      }
+    },
+    "cis-geckos-words": {
+      "enabled": true,
+      "path": "games/cis-geckos-words/",
+      "expires": "2026-11-30",
+      "minutes": 3,
+      "teaser": {
+        "ru": {
+          "label": "Игра по теме",
+          "title": "Слово из новости: гекконы",
+          "text": "Три слова из научной новости, по шесть попыток на каждое.",
+          "cta": "Играть · 3 мин",
+          "note": "Без регистрации · без звука"
+        }
+      }
+    },
+    "in-asiad-javelin": {
+      "enabled": true,
+      "path": "games/in-asiad-javelin/",
+      "expires": "2026-10-31",
+      "minutes": 1,
+      "sponsor": {
+        "name": "Demo Sports Brand",
+        "tag": {
+          "en": "Sponsored",
+          "hi": "प्रायोजित"
+        },
+        "label": {
+          "en": "Presented by",
+          "hi": "प्रस्तुतकर्ता:"
+        }
+      },
+      "teaser": {
+        "en": {
+          "label": "Play the story",
+          "title": "Javelin final: beat the medal marks",
+          "text": "Yash Vir Singh threw 85.72 m for silver. Three throws — can you go further?",
+          "cta": "Play · 1 min",
+          "note": "No sign-up · sound off"
+        },
+        "hi": {
+          "label": "ख़बर पर खेल",
+          "title": "भाला फेंक फ़ाइनल",
+          "text": "यश वीर सिंह ने 85.72 मीटर फेंककर रजत जीता। तीन थ्रो — क्या आप आगे फेंक पाएँगे?",
+          "cta": "खेलें · 1 मिनट",
+          "note": "बिना साइन-अप · आवाज़ बंद"
+        }
+      }
+    },
+    "cn-hsr-lines": {
+      "enabled": true,
+      "path": "games/cn-hsr-lines/",
+      "expires": "2026-11-30",
+      "minutes": 2,
+      "teaser": {
+        "zh": {
+          "label": "新闻小游戏",
+          "title": "高铁排排看：四条新线开通",
+          "text": "四段高铁同日开通。按长度和旅行时间给它们排排队。",
+          "cta": "开始 · 2 分钟",
+          "note": "无需注册 · 无声音"
+        },
+        "en": {
+          "label": "Play the story",
+          "title": "Rank the rails",
+          "text": "Four high-speed lines opened on one day. Order them by length and journey time.",
+          "cta": "Play · 2 min",
+          "note": "No sign-up · sound off"
+        }
+      }
+    },
+    "eu-solar-record": {
+      "enabled": true,
+      "path": "games/eu-solar-record/",
+      "expires": "2026-12-31",
+      "minutes": 2,
+      "teaser": {
+        "de": {
+          "label": "Spiel zur Meldung",
+          "title": "Solar-Lückentext: Rekordjahr 2026",
+          "text": "Schon Ende September mehr Solarstrom als im ganzen Jahr 2025. Setzen Sie die Zahlen ein.",
+          "cta": "Spielen · 2 Min.",
+          "note": "Ohne Anmeldung · ohne Cookies"
+        },
+        "en": {
+          "label": "Play the story",
+          "title": "Solar gap-fill",
+          "text": "More solar power by September than in all of 2025. Fill in the numbers.",
+          "cta": "Play · 2 min",
+          "note": "No sign-up · no cookies"
+        }
       }
     }
   }

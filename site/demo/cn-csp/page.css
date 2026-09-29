@@ -1,0 +1,12 @@
+/* Look of the CSP demo page. Kept in a file: inline styles are blocked by this page's CSP. */
+body { background: #faf8f5; font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", system-ui, sans-serif; }
+.mast { background: #b8141c; color: #fff; border: 0; }
+.mast .name { font-family: "PingFang SC", "Microsoft YaHei", sans-serif; letter-spacing: .12em; }
+.mast .name span { color: #ffd98a; margin-left: 4px; }
+.mast .date { color: #ffe3e3; }
+.menu { background: #fff; }
+article { font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif; line-height: 1.9; }
+.rubric { color: #b8141c; letter-spacing: .1em; }
+h1 { font-family: "PingFang SC", "Microsoft YaHei", sans-serif; }
+.figure { background: linear-gradient(100deg, #e9edf2 0 40%, #cfd6df 40% 42%, #e9edf2 42%); }
+.news-game { --ng-accent: #b8141c; --ng-pop: #ffd98a; --ng-surface: #ffffff; }

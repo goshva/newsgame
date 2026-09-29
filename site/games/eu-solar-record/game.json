@@ -1,0 +1,49 @@
+{
+  "id": "eu-solar-record",
+  "langs": ["de", "en"],
+  "title": { "de": "Solar-Lückentext: Rekordjahr 2026", "en": "Solar gap-fill: record year 2026" },
+  "article": {
+    "publisher": "Solarserver",
+    "title": { "de": "Deutschland stellt neuen Rekord bei Solarstromproduktion auf", "en": "Deutschland stellt neuen Rekord bei Solarstromproduktion auf" },
+    "url": "https://www.solarserver.de/2026/09/28/deutschland-stellt-neuen-rekord-bei-solarstromproduktion-auf/",
+    "date": "2026-09-28"
+  },
+  "demo": "../../demo/eu-consent/",
+  "expires": "2026-12-31",
+  "facts": [
+    { "id": "record", "text": { "de": "Bis zum 27. September 2026 erzeugten Photovoltaikanlagen in Deutschland 90,2 TWh – mehr als im gesamten Jahr 2025 (90,0 TWh).", "en": "By 27 September 2026, solar systems in Germany had produced 90.2 TWh – more than in all of 2025 (90.0 TWh)." },
+      "quote": "produzierten die PV-Anlagen im Land per 27. September 90,2 Terawattstunden (TWh) Strom. Das sei mehr als im gesamten Jahr 2025 (90,0 TWh).", "quote_status": "verbatim extract", "source": "https://www.solarserver.de/2026/09/28/deutschland-stellt-neuen-rekord-bei-solarstromproduktion-auf/" },
+    { "id": "installed", "text": { "de": "Aktuell sind in Deutschland Solarstromanlagen mit rund 130 GWp in Betrieb; für 2030 sind 215 GWp vorgesehen.", "en": "Germany currently has about 130 GWp of solar in operation; 215 GWp is planned for 2030." },
+      "quote": "Aktuell sind in Deutschland Solarstromanlagen mit einer Gesamtleistung von rund 130 GWp in Betrieb.", "quote_status": "verbatim extract", "source": "https://www.solarserver.de/2026/09/28/deutschland-stellt-neuen-rekord-bei-solarstromproduktion-auf/" },
+    { "id": "pace", "text": { "de": "Dafür müssten in den kommenden vier Jahren durchschnittlich rund 20 Gigawatt Solarleistung jährlich hinzukommen.", "en": "To get there, about 20 GW of new solar would be needed each year for the next four years." },
+      "quote": "müssten in den kommenden vier Jahren durchschnittlich rund 20 Gigawatt Solarleistung jährlich neu hinzukommen", "quote_status": "verbatim extract", "source": "https://www.solarserver.de/2026/09/28/deutschland-stellt-neuen-rekord-bei-solarstromproduktion-auf/" },
+    { "id": "share", "text": { "de": "Im vergangenen Jahr deckte die Photovoltaik rund ein Fünftel der heimischen Stromerzeugung.", "en": "Last year, solar covered about one fifth of Germany's electricity generation." },
+      "quote": "Im vergangenen Jahr deckte die Photovoltaik rund ein Fünftel der heimischen Stromerzeugung.", "quote_status": "verbatim extract", "source": "https://www.solarserver.de/2026/09/28/deutschland-stellt-neuen-rekord-bei-solarstromproduktion-auf/" }
+  ],
+  "sentences": [
+    { "before": { "de": "Bis zum 27. September 2026 erzeugten Solaranlagen in Deutschland", "en": "By 27 September 2026, solar systems in Germany produced" }, "answer": "90,2 TWh", "after": { "de": "Strom.", "en": "of electricity." } },
+    { "before": { "de": "Im gesamten Jahr 2025 waren es", "en": "In the whole of 2025, the total was" }, "answer": "90,0 TWh", "after": { "de": ".", "en": "." } },
+    { "before": { "de": "Aktuell sind Anlagen mit rund", "en": "Systems with about" }, "answer": "130 GWp", "after": { "de": "Leistung in Betrieb.", "en": "of capacity are in operation today." } },
+    { "before": { "de": "Für 2030 sind", "en": "For 2030, the plan is" }, "answer": "215 GWp", "after": { "de": "vorgesehen.", "en": "of installed capacity." } },
+    { "before": { "de": "Dafür müssten jährlich rund", "en": "That needs about" }, "answer": "20 GW", "after": { "de": "neu hinzukommen.", "en": "of new solar every year." } },
+    { "before": { "de": "Photovoltaik deckte 2025 rund", "en": "In 2025, solar covered about" }, "answer": "ein Fünftel", "after": { "de": "der Stromerzeugung.", "en": "of electricity generation." } }
+  ],
+  "chips": {
+    "de": ["90,2 TWh", "90,0 TWh", "130 GWp", "215 GWp", "20 GW", "ein Fünftel", "45,3 TWh", "die Hälfte"],
+    "en": ["90.2 TWh", "90.0 TWh", "130 GWp", "215 GWp", "20 GW", "one fifth", "45.3 TWh", "half"]
+  },
+  "answersEn": { "90,2 TWh": "90.2 TWh", "90,0 TWh": "90.0 TWh", "130 GWp": "130 GWp", "215 GWp": "215 GWp", "20 GW": "20 GW", "ein Fünftel": "one fifth" },
+  "text": {
+    "intro": { "de": "Deutschland hat 2026 schon Ende September mehr Solarstrom erzeugt als im ganzen Vorjahr. Setzen Sie die richtigen Zahlen in die Lücken: erst einen Baustein wählen, dann die Lücke. Zwei Bausteine sind zu viel.",
+               "en": "By the end of September 2026, Germany had already made more solar power than in all of last year. Put the right numbers in the gaps: pick a tile, then a gap. Two tiles are extra." },
+    "start": { "de": "Los geht's", "en": "Start" },
+    "gap": { "de": "Lücke", "en": "Gap" },
+    "empty": { "de": "leer", "en": "empty" },
+    "check": { "de": "Prüfen", "en": "Check" },
+    "tiles": { "de": "Bausteine", "en": "Tiles" },
+    "kicker": { "de": "Ihr Ergebnis", "en": "Your result" },
+    "of": { "de": "von", "en": "of" },
+    "right": { "de": "Lücken richtig", "en": "gaps right" },
+    "switch": { "de": "English", "en": "Deutsch" }
+  }
+}

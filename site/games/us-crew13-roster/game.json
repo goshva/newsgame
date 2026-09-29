@@ -1,0 +1,62 @@
+{
+  "id": "us-crew13-roster",
+  "langs": ["en"],
+  "title": { "en": "Crew-13: mission briefing" },
+  "article": {
+    "publisher": "Space.com",
+    "title": { "en": "SpaceX, NASA delay next astronaut launch to ISS due to leak on Dragon spacecraft" },
+    "url": "https://www.space.com/space-exploration/launches-spacecraft/spacex-nasa-delay-next-astronaut-launch-to-iss-due-to-leak-on-dragon-spacecraft",
+    "date": "2026-09"
+  },
+  "demo": "../../demo/us-iframe/",
+  "expires": "2026-10-15",
+  "facts": [
+    { "id": "leak", "text": { "en": "The launch was moved to address an oxidizer leak on Dragon's propulsion system, found during standard prelaunch processing." },
+      "quote": "to address an oxidizer leak on Dragon's propulsion system which was detected during standard prelaunch spacecraft processing",
+      "quote_status": "verbatim extract, NASA blog", "source": "https://www.nasa.gov/blogs/spacestation/2026/08/29/nasa-spacex-adjust-crew-13-launch-date/" },
+    { "id": "crew", "text": { "en": "NASA astronauts Jessica Watkins and Luke Delaney are commander and pilot; Joshua Kutryk (CSA) and Sergey Teteryatnikov (Roscosmos) are mission specialists." },
+      "quote": "NASA astronauts Jessica Watkins and Luke Delaney will serve as spacecraft commander and pilot, respectively. They will be joined by CSA (Canadian Space Agency) astronaut Joshua Kutryk and Roscosmos cosmonaut Sergey Teteryatnikov, who will serve as mission specialists.",
+      "quote_status": "verbatim extract, NASA blog", "source": "https://www.nasa.gov/blogs/spacestation/2026/08/29/nasa-spacex-adjust-crew-13-launch-date/" },
+    { "id": "expedition", "text": { "en": "On the station, Crew-13 will become part of Expedition 75." },
+      "quote": "Crew-13 will become members of the space station's Expedition 75",
+      "quote_status": "verbatim extract, NASA blog", "source": "https://www.nasa.gov/blogs/spacestation/2026/08/29/nasa-spacex-adjust-crew-13-launch-date/" },
+    { "id": "pad", "text": { "en": "They will launch on a Falcon 9 from Space Launch Complex 40 at Cape Canaveral Space Force Station, Florida." },
+      "quote": "on the company's Falcon 9 rocket from Space Launch Complex 40 from Cape Canaveral Space Force Station in Florida",
+      "quote_status": "verbatim extract, NASA blog", "source": "https://www.nasa.gov/blogs/spacestation/2026/08/29/nasa-spacex-adjust-crew-13-launch-date/" }
+  ],
+  "crew": [
+    { "name": "Jessica Watkins", "slot": "commander" },
+    { "name": "Luke Delaney", "slot": "pilot" },
+    { "name": "Joshua Kutryk", "slot": "ms-csa" },
+    { "name": "Sergey Teteryatnikov", "slot": "ms-roscosmos" }
+  ],
+  "slots": [
+    { "id": "commander", "label": { "en": "Spacecraft commander · NASA" } },
+    { "id": "pilot", "label": { "en": "Pilot · NASA" } },
+    { "id": "ms-csa", "label": { "en": "Mission specialist · Canadian Space Agency" } },
+    { "id": "ms-roscosmos", "label": { "en": "Mission specialist · Roscosmos" } }
+  ],
+  "questions": [
+    { "q": { "en": "What moved the launch date?" }, "fact": "leak",
+      "options": [{ "en": "An oxidizer leak in Dragon's propulsion system" }, { "en": "A storm over Florida" }, { "en": "A Falcon 9 engine problem" }, { "en": "A crew member's illness" }], "answer": 0 },
+    { "q": { "en": "Which station crew will they join?" }, "fact": "expedition",
+      "options": [{ "en": "Expedition 68" }, { "en": "Expedition 75" }, { "en": "Expedition 80" }, { "en": "Expedition 101" }], "answer": 1 },
+    { "q": { "en": "Where will they launch from?" }, "fact": "pad",
+      "options": [{ "en": "Launch Complex 39A, Kennedy Space Center" }, { "en": "Vandenberg, California" }, { "en": "Space Launch Complex 40, Cape Canaveral" }, { "en": "Baikonur, Kazakhstan" }], "answer": 2 }
+  ],
+  "text": {
+    "intro": { "en": "Crew-13's launch to the space station was moved. Before the new date, brief the mission: put each crew member in the right seat, then answer three questions from the story." },
+    "start": { "en": "Start briefing" },
+    "step1": { "en": "Step 1 of 2 · Choose a name, then the seat" },
+    "step2": { "en": "Step 2 of 2 · Mission questions" },
+    "empty": { "en": "Empty seat" },
+    "check": { "en": "Check the roster" },
+    "correct": { "en": "Correct." },
+    "wrong": { "en": "Not quite." },
+    "next": { "en": "Next" },
+    "seats": { "en": "seats right" },
+    "kicker": { "en": "Briefing complete" },
+    "of": { "en": "of" },
+    "picked": { "en": "Selected" }
+  }
+}

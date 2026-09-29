@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Лента-демо: SPA</title>
+<link rel="stylesheet" href="../demo.css">
+<style>
+  body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background: #fff; }
+  .top { display: flex; align-items: center; gap: 16px; padding: 14px 20px; border-bottom: 1px solid #e6e6e6; }
+  .logo { font: 800 22px/1 system-ui, sans-serif; color: #e11d48; }
+  .logo span { color: #111; }
+  .layout { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 32px; padding: 20px 16px; }
+  @media (max-width: 800px) { .layout { grid-template-columns: minmax(0, 1fr); } }
+  .feed { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; align-content: start; }
+  .feed a { display: block; padding: 10px 12px; border-radius: 8px; text-decoration: none; color: #111; font: 600 15px/1.35 system-ui, sans-serif; }
+  .feed a small { display: block; color: #777; font-weight: 400; font-size: 12px; margin-bottom: 2px; }
+  .feed a[aria-current="page"] { background: #fff1f3; box-shadow: inset 3px 0 0 #e11d48; }
+  #view article { padding: 0; max-width: 680px; margin: 0; font-family: Georgia, serif; }
+  .rubric { color: #e11d48; }
+  .route { font: 12px ui-monospace, Consolas, monospace; color: #777; margin: 0 0 10px; }
+</style>
+</head>
+<body>
+<div class="ribbon" lang="ru"><span>Демо интеграции NewsGame: одностраничное приложение (SPA). Это макет, а не сайт издания.</span><a href="#integration">Как встроено ↓</a><a href="../../games/">Все игры</a></div>
+<header class="top"><div class="logo">Лента<span>·демо</span></div><div class="date" style="color:#777;font-size:13px">Материалы открываются без перезагрузки страницы</div></header>
+<div class="layout">
+  <nav aria-label="Лента"><ul class="feed" id="feed"></ul></nav>
+  <main id="view" aria-live="polite"></main>
+</div>
+
+<section class="panel" id="integration" lang="ru" aria-label="Интеграция">
+  <h2>Способ: SPA без перезагрузки страницы</h2>
+  <p>Loader подключается один раз на всё приложение. Приложение само рисует статьи и вставляет в каждую контейнер <code>.news-game</code>. Loader замечает новые контейнеры через MutationObserver. Если контейнер удалён вместе со статьёй, открытая игра закрывается.</p>
+  <pre><code>&lt;!-- один раз в шаблоне приложения --&gt;
+&lt;script async src="https://goshva.github.io/newsgame/widget/v1.js" data-site="demo-cis-spa"&gt;&lt;/script&gt;
+
+&lt;!-- в компоненте статьи --&gt;
+&lt;div class="news-game" data-placement="article-end"
+     data-article-id="{{ article.gameId }}" data-lang="ru"&gt;&lt;/div&gt;</code></pre>
+  <p>Третий материал показывает, что будет, если игры для статьи нет в каталоге: блок скрывается и не занимает места.</p>
+  <h3>Ссылки</h3>
+  <div class="links">
+    <a href="../../games/cis-geckos-words/">Игра «Слово из новости»</a>
+    <a href="../../games/cis-gref-ai-race/">Игра «ИИ-гонка»</a>
+    <a href="../../catalog.json">catalog.json</a>
+  </div>
+  <h3>События виджета</h3>
+  <ul class="log" id="ng-log"><li class="empty">Откройте материал и нажмите кнопку игры.</li></ul>
+</section>
+
+<script>
+  // A tiny client-side router standing in for a publisher's React/Vue app.
+  var ARTICLES = {
+    geckos: {
+      rubric: "Наука", date: "20 сентября 2026", game: "cis-geckos-words",
+      title: "Зоологи МГУ участвовали в описании 10 новых видов гекконов",
+      body: [
+        "Международная группа учёных, в которую вошли сотрудники Зоологического музея МГУ, описала 10 новых видов тонкопалых гекконов.",
+        "Один из видов, Cyrtopodion orlovi, назван в честь герпетолога Николая Люциановича Орлова. Исследователи проанализировали 251 экземпляр ящериц, собранных в экспедициях 2004–2023 годов в 32 местах Ирана."
+      ],
+      source: ["«Санкт-Петербургские ведомости»", "https://spbvedomosti.ru/news/nauka/evrika-novosti-nauki-20-sentyabrya-2026/"]
+    },
+    ai: {
+      rubric: "Технологии", date: "23 сентября 2026", game: "cis-gref-ai-race",
+      title: "Греф оценил отставание российских ИИ-моделей от китайских в полгода",
+      body: [
+        "Глава Сбербанка Герман Греф на конференции «ГигаКонф 2026» оценил отставание российских моделей искусственного интеллекта от китайских примерно в полгода. Главной причиной он назвал ограниченный доступ к вычислительным мощностям.",
+        "По словам Грефа, китайские модели, в свою очередь, примерно настолько же отстают от американских."
+      ],
+      source: ["«Коммерсантъ»", "https://www.kommersant.ru/doc/8973642"]
+    },
+    nogame: {
+      rubric: "Служебное", date: "—", game: "no-such-game",
+      title: "Материал без игры",
+      body: ["Для этой статьи в каталоге нет игры. Контейнер на странице есть, но loader его скрывает: ни пустого места, ни ошибки."],
+      source: null
+    }
+  };
+  var feed = document.getElementById("feed"), view = document.getElementById("view");
+  Object.keys(ARTICLES).forEach(function (id) {
+    var a = ARTICLES[id], li = document.createElement("li"), link = document.createElement("a");
+    link.href = "?a=" + id; link.dataset.id = id;
+    link.innerHTML = "<small></small>"; link.firstChild.textContent = a.rubric + " · " + a.date;
+    link.appendChild(document.createTextNode(a.title));
+    link.addEventListener("click", function (e) { e.preventDefault(); history.pushState(null, "", "?a=" + id); show(id); });
+    li.appendChild(link); feed.appendChild(li);
+  });
+  function show(id) {
+    var a = ARTICLES[id] || ARTICLES.geckos;
+    feed.querySelectorAll("a").forEach(function (l) { l.setAttribute("aria-current", l.dataset.id === id ? "page" : "false"); });
+    view.textContent = "";
+    var art = document.createElement("article");
+    var route = document.createElement("p"); route.className = "route"; route.textContent = "route: ?a=" + id + " (без перезагрузки)";
+    var r = document.createElement("div"); r.className = "rubric"; r.textContent = a.rubric;
+    var h = document.createElement("h1"); h.textContent = a.title;
+    art.appendChild(route); art.appendChild(r); art.appendChild(h);
+    a.body.forEach(function (t) { var p = document.createElement("p"); p.textContent = t; art.appendChild(p); });
+    if (a.source) {
+      var s = document.createElement("p"); s.className = "source"; s.textContent = "По материалам ";
+      var l = document.createElement("a"); l.href = a.source[1]; l.target = "_blank"; l.rel = "noopener"; l.textContent = a.source[0];
+      s.appendChild(l); art.appendChild(s);
+    }
+    var box = document.createElement("div");
+    box.className = "news-game";
+    box.setAttribute("data-placement", "article-end");
+    box.setAttribute("data-article-id", a.game);
+    box.setAttribute("data-lang", "ru");
+    art.appendChild(box);
+    view.appendChild(art);
+    document.title = a.title + " — Лента-демо";
+  }
+  window.addEventListener("popstate", function () { show(new URLSearchParams(location.search).get("a") || "geckos"); });
+  show(new URLSearchParams(location.search).get("a") || "geckos");
+</script>
+<!-- NewsGame: loaded once for the whole app -->
+<script async src="../../widget/v1.js" data-site="demo-cis-spa"></script>
+<script src="../panel.js"></script>
+</body>
+</html>

@@ -18,7 +18,11 @@
     ru: { back: "Вернуться к статье", restart: "Заново", pause: "Пауза", resume: "Продолжить", loading: "Загружаем игру…",
           error: "Игра не загрузилась.", source: "Источник", learned: "Что вы узнали", again: "Сыграть ещё", paused: "Пауза" },
     zh: { back: "返回文章", restart: "重新开始", pause: "暂停", resume: "继续", loading: "正在加载游戏…",
-          error: "游戏加载失败。", source: "来源", learned: "你学到了", again: "再玩一次", paused: "已暂停" }
+          error: "游戏加载失败。", source: "来源", learned: "你学到了", again: "再玩一次", paused: "已暂停" },
+    hi: { back: "लेख पर लौटें", restart: "फिर से शुरू", pause: "रोकें", resume: "जारी रखें", loading: "गेम लोड हो रहा है…",
+          error: "गेम लोड नहीं हो सका।", source: "स्रोत", learned: "आपने क्या जाना", again: "फिर से खेलें", paused: "रुका हुआ" },
+    de: { back: "Zurück zum Artikel", restart: "Neu starten", pause: "Pause", resume: "Weiter", loading: "Spiel wird geladen …",
+          error: "Das Spiel konnte nicht geladen werden.", source: "Quelle", learned: "Das haben Sie erfahren", again: "Noch einmal", paused: "Pausiert" }
   };
 
   var NG = {
@@ -91,11 +95,11 @@
         ? NG.el("span", { text: src.publisher + " — " + NG.t(src.title) })
         : NG.el("a", { href: src.url, target: "_blank", rel: "noopener", text: src.publisher + " — " + NG.t(src.title) })]),
       NG.el("div", { "class": "ng-actions" }, [
-        NG.el("button", { type: "button", "class": "ng-btn ng-main", text: NG.ui.back, onclick: NG.exit }),
-        NG.el("button", { type: "button", "class": "ng-btn", text: NG.ui.again, onclick: function () { NG._restart(); } })
+        embedded && !target ? null : NG.el("button", { type: "button", "class": "ng-btn ng-main", text: NG.ui.back, onclick: NG.exit }),
+        NG.el("button", { type: "button", "class": "ng-btn ng-again", text: NG.ui.again, onclick: function () { NG._restart(); } })
       ])
     ]));
-    stage.querySelector(".ng-main").focus();
+    (stage.querySelector(".ng-final .ng-main") || stage.querySelector(".ng-again")).focus();
   };
 
   // Header
@@ -105,6 +109,8 @@
     pauseBtn = NG.el("button", { type: "button", "class": "ng-btn ng-small", "aria-pressed": "false", hidden: "", onclick: function () { NG.setPaused(!NG.paused); } });
     restartBtn = NG.el("button", { type: "button", "class": "ng-btn ng-small", onclick: function () { NG.setPaused(false); if (NG._restart) NG._restart(); } });
     backBtn = NG.el("button", { type: "button", "class": "ng-btn ng-small ng-back", onclick: NG.exit });
+    // Plain iframe without the loader (no origin passed): the game cannot close itself, the reader just scrolls on.
+    if (embedded && !target) backBtn.hidden = true;
     header = NG.el("header", { "class": "ng-head" }, [titleEl, NG.el("div", { "class": "ng-tools" }, [pauseBtn, restartBtn, backBtn])]);
     document.body.insertBefore(header, document.body.firstChild);
     var stage = document.getElementById("stage");

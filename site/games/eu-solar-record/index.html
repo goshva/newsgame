@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="de" data-game="eu-solar-record">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Solar-Lückentext</title>
+<link rel="stylesheet" href="../shared/game.css">
+<style>
+  .sents { display: grid; gap: 10px; margin: 0 0 16px; padding: 0; list-style: none; }
+  .sents li { line-height: 2.1; font-size: 17px; }
+  .gap { display: inline-flex; align-items: center; justify-content: center; min-width: 96px; min-height: 36px; padding: 0 10px; margin: 0 4px; border-radius: 8px;
+         border: 2px dashed var(--muted); background: var(--bg); color: var(--ink); font: inherit; font-weight: 700; cursor: pointer; vertical-align: middle; }
+  .gap.filled { border-style: solid; border-color: var(--accent); }
+  .gap.ok { border-color: var(--ok); background: color-mix(in srgb, var(--ok) 14%, var(--bg)); }
+  .gap.bad { border-color: var(--err); background: color-mix(in srgb, var(--err) 12%, var(--bg)); }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip { border-radius: 8px; }
+  .chip[aria-pressed="true"] { background: var(--pop); border-color: var(--pop); color: #14182b; }
+  .chip.used { visibility: hidden; }
+  .lbl { font-size: 13px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; margin: 0 0 6px; }
+  .sun { width: 44px; height: 44px; border-radius: 50%; background: radial-gradient(circle, #ffd45c 55%, transparent 56%), repeating-conic-gradient(#ffd45c 0 8deg, transparent 8deg 30deg); }
+  .row { display: flex; gap: 10px; margin-top: 14px; flex-wrap: wrap; align-items: center; }
+  .fix { font-size: 14px; color: var(--muted); }
+</style>
+</head>
+<body>
+<main id="stage"></main>
+<script src="../shared/runtime.js"></script>
+<script src="game.js"></script>
+</body>
+</html>
