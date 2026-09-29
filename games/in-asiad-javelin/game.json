@@ -1,0 +1,51 @@
+{
+  "id": "in-asiad-javelin",
+  "langs": ["en", "hi"],
+  "title": { "en": "Javelin final: beat the medal marks", "hi": "भाला फेंक फ़ाइनल: पदक का निशाना पार करें" },
+  "article": {
+    "publisher": "Olympics.com",
+    "title": { "en": "Asian Games 2026: Rumesh Tharanga spoils India's javelin party as Yash Vir Singh, Rohit Yadav win silver and bronze", "hi": "Asian Games 2026: Rumesh Tharanga spoils India's javelin party as Yash Vir Singh, Rohit Yadav win silver and bronze" },
+    "url": "https://www.olympics.com/en/news/asian-games-2026-athletics-javelin-throw-results",
+    "date": "2026-09-28"
+  },
+  "demo": "../../demo/in-sponsored/",
+  "expires": "2026-10-31",
+  "note": "Olympics.com timed out for the fetcher: quotes are paraphrases from search results. Replace with verbatim quotes before publishing.",
+  "marks": [
+    { "name": { "en": "Rumesh Tharanga (SRI)", "hi": "रुमेश थरंगा (श्रीलंका)" }, "m": 88.55, "medal": "gold" },
+    { "name": { "en": "Yash Vir Singh (IND)", "hi": "यश वीर सिंह (भारत)" }, "m": 85.72, "medal": "silver" },
+    { "name": { "en": "Rohit Yadav (IND)", "hi": "रोहित यादव (भारत)" }, "m": 84.35, "medal": "bronze" },
+    { "name": { "en": "Arshad Nadeem (PAK)", "hi": "अरशद नदीम (पाकिस्तान)" }, "m": 80.29, "medal": "none" }
+  ],
+  "facts": [
+    { "id": "gold", "text": { "en": "Sri Lanka's Rumesh Tharanga won gold with a throw of 88.55 m.", "hi": "श्रीलंका के रुमेश थरंगा ने 88.55 मीटर के थ्रो के साथ स्वर्ण पदक जीता।" },
+      "quote": "Rumesh Tharanga's winning throw measured 88.55m", "quote_status": "paraphrase, check", "source": "https://www.olympics.com/en/news/asian-games-2026-athletics-javelin-throw-results" },
+    { "id": "silver", "text": { "en": "Yash Vir Singh won silver with a personal best of 85.72 m.", "hi": "यश वीर सिंह ने 85.72 मीटर के व्यक्तिगत सर्वश्रेष्ठ थ्रो के साथ रजत पदक जीता।" },
+      "quote": "Yash Vir Singh produced a personal best of 85.72m", "quote_status": "paraphrase, check", "source": "https://www.olympics.com/en/news/asian-games-2026-athletics-javelin-throw-results" },
+    { "id": "bronze", "text": { "en": "Rohit Yadav took bronze with 84.35 m.", "hi": "रोहित यादव ने 84.35 मीटर के साथ कांस्य पदक जीता।" },
+      "quote": "Rohit Yadav registered 84.35m", "quote_status": "paraphrase, check", "source": "https://www.olympics.com/en/news/asian-games-2026-athletics-javelin-throw-results" },
+    { "id": "nadeem", "text": { "en": "Olympic champion Arshad Nadeem of Pakistan finished fourth with 80.29 m.", "hi": "ओलंपिक चैंपियन पाकिस्तान के अरशद नदीम 80.29 मीटर के साथ चौथे स्थान पर रहे।" },
+      "quote": "Pakistan's Arshad Nadeem ... finished fourth with 80.29m", "quote_status": "paraphrase, check", "source": "https://www.olympics.com/en/news/asian-games-2026-athletics-javelin-throw-results" },
+    { "id": "venue", "text": { "en": "The final was held at Nagoya City Mizuho Park Athletic Stadium. Neeraj Chopra missed the Games with a ligament tear.", "hi": "फ़ाइनल नागोया सिटी मिज़ुहो पार्क एथलेटिक स्टेडियम में हुआ। नीरज चोपड़ा लिगामेंट की चोट के कारण खेलों में हिस्सा नहीं ले सके।" },
+      "quote": "Nagoya City Mizuho Park Athletic Stadium", "quote_status": "paraphrase, check", "source": "https://www.olympics.com/en/news/asian-games-2026-athletics-javelin-throw-results" }
+  ],
+  "text": {
+    "intro": { "en": "Yash Vir Singh and Rohit Yadav won silver and bronze in the javelin at the Asian Games. Your turn: three throws. Tap once to set the power, tap again to set the angle. Can you beat the medal marks?",
+               "hi": "एशियाई खेलों में भाला फेंक में यश वीर सिंह और रोहित यादव ने रजत और कांस्य जीता। अब आपकी बारी: तीन थ्रो। पहली बार टैप करके ताकत तय करें, दूसरी बार टैप करके कोण। क्या आप पदक वाले थ्रो को पार कर पाएँगे?" },
+    "controls": { "en": "Tap the button or press Space.", "hi": "बटन दबाएँ या Space दबाएँ।" },
+    "start": { "en": "Start", "hi": "शुरू करें" },
+    "setPower": { "en": "Set power", "hi": "ताकत तय करें" },
+    "setAngle": { "en": "Set angle", "hi": "कोण तय करें" },
+    "next": { "en": "Next throw", "hi": "अगला थ्रो" },
+    "throwN": { "en": "Throw {n} of 3", "hi": "थ्रो {n} / 3" },
+    "power": { "en": "Power", "hi": "ताकत" },
+    "angle": { "en": "Angle", "hi": "कोण" },
+    "best": { "en": "Best", "hi": "सर्वश्रेष्ठ" },
+    "m": { "en": "m", "hi": "मी" },
+    "beat": { "en": "You passed", "hi": "आपने पीछे छोड़ा:" },
+    "kicker": { "en": "Your best throw", "hi": "आपका सर्वश्रेष्ठ थ्रो" },
+    "place": { "en": "Place in this final: {n}", "hi": "इस फ़ाइनल में आपका स्थान: {n}" },
+    "field": { "en": "Javelin field with the medal marks", "hi": "पदक निशानों के साथ भाला फेंक का मैदान" },
+    "lang": { "en": "हिन्दी", "hi": "English" }
+  }
+}

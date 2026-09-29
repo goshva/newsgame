@@ -1,0 +1,48 @@
+{
+  "id": "cn-hsr-lines",
+  "langs": ["zh", "en"],
+  "title": { "zh": "高铁排排看：四条新线开通", "en": "Rank the rails: four new high-speed lines" },
+  "article": {
+    "publisher": "Xinhua",
+    "title": { "zh": "China Focus: China opens four high-speed rail lines, expanding national network", "en": "China Focus: China opens four high-speed rail lines, expanding national network" },
+    "url": "https://english.news.cn/20260928/00845c1a8f974b1881671deabe0d07a3/c.html",
+    "date": "2026-09-28"
+  },
+  "demo": "../../demo/cn-csp/",
+  "expires": "2026-11-30",
+  "lines": [
+    { "id": "yx", "name": { "zh": "宜昌—兴山", "en": "Yichang–Xingshan" }, "km": 101 },
+    { "id": "xa", "name": { "zh": "西安—安康", "en": "Xi'an–Ankang" }, "km": 171, "minutes": 45 },
+    { "id": "hy", "name": { "zh": "哈尔滨—伊春", "en": "Harbin–Yichun" }, "km": 318, "minutes": 120 },
+    { "id": "xs", "name": { "zh": "雄安—商丘", "en": "Xiong'an–Shangqiu" }, "km": 552, "minutes": 147 }
+  ],
+  "facts": [
+    { "id": "yx", "text": { "zh": "宜昌至兴山高铁全长 101 公里，设计时速 350 公里。", "en": "The Yichang–Xingshan line is 101 km long, with a design speed of 350 km/h." },
+      "quote": "The 101-kilometer Yichang-Xingshan high-speed railway officially entered service on Monday.", "quote_status": "verbatim extract", "source": "https://english.news.cn/20260928/00845c1a8f974b1881671deabe0d07a3/c.html" },
+    { "id": "xs", "text": { "zh": "雄安至商丘段正线全长 552 公里，最快 2 小时 27 分钟可达。", "en": "The Xiong'an–Shangqiu main line is 552 km; the fastest trip takes 2 hours 27 minutes." },
+      "quote": "with the main line measuring 552 kilometers long ... the fastest journey from Xiong'an to Shangqiu will take just 2 hours and 27 minutes", "quote_status": "verbatim extract", "source": "https://english.news.cn/20260928/00845c1a8f974b1881671deabe0d07a3/c.html" },
+    { "id": "xa", "text": { "zh": "西安至安康段全长 171 公里，穿越秦岭，两端之间最快 45 分钟。", "en": "The 171-km Xi'an–Ankang section crosses the Qinling Mountains; trains link its ends in 45 minutes." },
+      "quote": "the 171-km Xi'an-Ankang section crosses the Qinling Mountains ... the train can travel between its two terminal stations in just 45 minutes", "quote_status": "verbatim extract", "source": "https://english.news.cn/20260928/00845c1a8f974b1881671deabe0d07a3/c.html" },
+    { "id": "hy", "text": { "zh": "哈尔滨至伊春段全长 318 公里，是我国最北的高铁，两地铁路旅行时间由约 7 小时缩短至约 2 小时。", "en": "The 318-km Harbin–Yichun section is China's northernmost high-speed railway; it cuts the trip from about seven hours to roughly two." },
+      "quote": "the 318-km Harbin-Yichun section is China's northernmost high-speed railway ever constructed ... from about seven hours to roughly two hours", "quote_status": "verbatim extract", "source": "https://english.news.cn/20260928/00845c1a8f974b1881671deabe0d07a3/c.html" },
+    { "id": "network", "text": { "zh": "截至 2025 年底，全国铁路营业里程达 16.5 万公里，其中高铁超过 5 万公里；预计到 2035 年高铁将达 7 万公里。", "en": "By the end of 2025 China had 165,000 km of railways, including more than 50,000 km of high-speed rail; it plans 70,000 km of high-speed rail by 2035." },
+      "quote": "By the end of 2025, the country's total operating railway mileage had reached 165,000 km, including more than 50,000 km of high-speed rail.", "quote_status": "verbatim extract", "source": "https://english.news.cn/20260928/00845c1a8f974b1881671deabe0d07a3/c.html" }
+  ],
+  "text": {
+    "intro": { "zh": "9 月 28 日，四段高铁同日开通。按报道内容给它们排序：第一轮按线路长度，第二轮按最快旅行时间。用 ↑ ↓ 调整顺序。", "en": "Four high-speed rail sections opened on 28 September. Put them in order using the story: first by length, then by fastest journey time. Use ↑ ↓ to move a line." },
+    "start": { "zh": "开始", "en": "Start" },
+    "r1": { "zh": "第 1 轮：从最短到最长", "en": "Round 1: shortest to longest" },
+    "r2": { "zh": "第 2 轮：从最快到最慢（最快旅行时间）", "en": "Round 2: quickest to slowest trip" },
+    "up": { "zh": "上移", "en": "Move up" },
+    "down": { "zh": "下移", "en": "Move down" },
+    "check": { "zh": "确认顺序", "en": "Check the order" },
+    "next": { "zh": "下一轮", "en": "Next round" },
+    "right": { "zh": "位置正确", "en": "in the right place" },
+    "km": { "zh": "公里", "en": "km" },
+    "min": { "zh": "分钟", "en": "min" },
+    "about": { "zh": "约", "en": "about " },
+    "kicker": { "zh": "你的得分", "en": "Your score" },
+    "of": { "zh": "/", "en": "of" },
+    "switch": { "zh": "English", "en": "中文" }
+  }
+}

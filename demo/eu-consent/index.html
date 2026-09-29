@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Solarstrom-Rekord schon im September — Demo-Rundschau</title>
+<link rel="stylesheet" href="../demo.css">
+<style>
+  :root { color-scheme: dark; }
+  body { background: #11141c; color: #e7e9ef; font-family: "Iowan Old Style", Georgia, serif; }
+  .mast { border-bottom: 1px solid #2a2f3d; }
+  .mast .name { font-family: Georgia, serif; font-style: italic; }
+  .mast .name span { color: #f5b82e; font-style: normal; }
+  .mast .date, .byline, .source, .related { color: #9aa1b3; }
+  .menu { border-color: #2a2f3d; color: #9aa1b3; }
+  .rubric { color: #f5b82e; }
+  .figure { background: radial-gradient(circle at 70% 30%, #f5b82e 0 12%, transparent 13%), linear-gradient(180deg, #1c2233, #2c3448); color: #9aa1b3; }
+  .source { border-color: #2a2f3d; }
+  a { color: #f5b82e; }
+  .related h2 { color: #e7e9ef; }
+  /* Publisher dark theme for the teaser */
+  .news-game { --ng-accent: #f5b82e; --ng-pop: #f5b82e; --ng-surface: #1b202c; color: #e7e9ef; }
+  .ph { margin: 28px 0; padding: 18px 20px; border: 1px dashed #3a4152; border-radius: 10px; font: 15px/1.5 system-ui, sans-serif; color: #9aa1b3; }
+  .ph button { margin-top: 10px; }
+  .cmp { position: fixed; left: 16px; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); max-width: 560px; margin: 0 auto; z-index: 20;
+         background: #f7f7f9; color: #15171d; border-radius: 12px; padding: 20px; box-shadow: 0 20px 60px rgba(0,0,0,.5); font: 15px/1.5 system-ui, sans-serif; }
+  .cmp h2 { font-size: 17px; margin: 0 0 6px; }
+  .cmp p { margin: 0 0 12px; color: #3d4150; }
+  .cmp ul { margin: 0 0 14px; padding-left: 18px; color: #3d4150; font-size: 14px; }
+  .cmp .btns, .ph .btns { display: flex; gap: 8px; flex-wrap: wrap; }
+  .cbtn { font: 700 14px/1 system-ui, sans-serif; min-height: 42px; padding: 0 16px; border-radius: 999px; border: 1px solid #15171d; background: #fff; color: #15171d; cursor: pointer; }
+  .cbtn.primary { background: #15171d; color: #fff; }
+  .settings { font: 13px system-ui, sans-serif; background: none; border: 0; color: #f5b82e; text-decoration: underline; cursor: pointer; padding: 0; }
+</style>
+</head>
+<body>
+<div class="ribbon" lang="ru"><span>Демо интеграции NewsGame: загрузка только после согласия на cookies, тёмная тема издания. Это макет, а не сайт издания.</span><a href="#integration">Как встроено ↓</a><a href="../../games/">Все игры</a></div>
+<header class="mast"><div class="name">Demo-<span>Rundschau</span></div><div class="date">Montag, 28. September 2026</div></header>
+<nav class="menu" aria-label="Ressorts"><span>Politik</span><span>Wirtschaft</span><span>Energie</span><span>Wissen</span></nav>
+<article>
+  <div class="rubric">Energie</div>
+  <h1>Solarstrom-Rekord: Schon im September mehr als im ganzen Vorjahr</h1>
+  <div class="byline">Demo-Artikel · Zusammenfassung für die Integrationsdemo</div>
+  <div class="figure" aria-hidden="true">Foto</div>
+  <p>Photovoltaikanlagen in Deutschland haben bis zum 27. September 2026 rund 90,2 Terawattstunden Strom erzeugt – mehr als im gesamten Jahr 2025 mit 90,0 TWh.</p>
+  <p>Aktuell sind Solaranlagen mit rund 130 Gigawatt Spitzenleistung in Betrieb. Für 2030 sind 215 GWp vorgesehen; dafür müssten in den kommenden vier Jahren jährlich rund 20 Gigawatt hinzukommen.</p>
+  <p>Im vergangenen Jahr deckte die Photovoltaik rund ein Fünftel der heimischen Stromerzeugung.</p>
+  <p class="source">Nach Berichten von <a href="https://www.solarserver.de/2026/09/28/deutschland-stellt-neuen-rekord-bei-solarstromproduktion-auf/" target="_blank" rel="noopener">Solarserver</a></p>
+
+  <!-- NewsGame: the container is always in the page; the loader only after consent -->
+  <div class="news-game" data-placement="article-end" data-article-id="eu-solar-record" data-lang="de"></div>
+  <script type="text/plain" data-consent="functional" data-src="../../widget/v1.js" data-site="demo-eu-consent"></script>
+  <!-- /NewsGame -->
+  <div class="ph" id="placeholder" hidden>
+    Hier steht ein Spiel zum Artikel. Es wird erst geladen, wenn Sie funktionalen Inhalten zustimmen.
+    <div class="btns"><button type="button" class="cbtn primary" id="ph-accept">Spiel laden</button></div>
+  </div>
+  <p><button type="button" class="settings" id="reopen">Datenschutz-Einstellungen</button></p>
+</article>
+<aside class="related"><h2>Mehr aus Energie</h2><ul><li>Photovoltaik-Ausbau: Wie viel Zubau bis 2030 nötig ist</li><li>Energy-Charts: So wird Solarstrom gemessen</li></ul></aside>
+
+<div class="cmp" id="cmp" role="dialog" aria-labelledby="cmp-title" hidden>
+  <h2 id="cmp-title">Ihre Privatsphäre</h2>
+  <p>Wir binden funktionale Inhalte eines Drittanbieters ein. Sie können zustimmen oder nur notwendige Dienste nutzen. Die Wahl lässt sich jederzeit ändern.</p>
+  <ul><li><strong>Notwendig:</strong> Seitendarstellung</li><li><strong>Funktional:</strong> NewsGame – Spiele zu Artikeln (ohne Cookies, ohne personenbezogene Daten)</li></ul>
+  <div class="btns">
+    <button type="button" class="cbtn primary" id="accept">Alle akzeptieren</button>
+    <button type="button" class="cbtn" id="reject">Nur notwendige</button>
+  </div>
+</div>
+
+<section class="panel" id="integration" lang="ru" aria-label="Интеграция">
+  <h2>Способ: загрузка после согласия (CMP) и тёмная тема</h2>
+  <p>Контейнер стоит в статье всегда, а loader подключён неактивным тегом <code>type="text/plain"</code>. Платформа управления согласием (CMP) активирует его, только если читатель согласился на функциональные сервисы. При отказе на месте игры показывается заглушка с кнопкой «Загрузить игру». Цвета тизера задаются CSS-переменными под тёмную тему.</p>
+  <pre><code>&lt;div class="news-game" data-placement="article-end"
+     data-article-id="eu-solar-record" data-lang="de"&gt;&lt;/div&gt;
+&lt;script type="text/plain" data-consent="functional"
+        data-src="https://goshva.github.io/newsgame/widget/v1.js"
+        data-site="demo-eu-consent"&gt;&lt;/script&gt;
+
+// в обработчике CMP после согласия:
+const s = document.createElement("script");
+s.src = tag.dataset.src; s.async = true; s.dataset.site = tag.dataset.site;
+document.body.appendChild(s);</code></pre>
+  <p>Сама игра не ставит cookies и не пишет в localStorage. Этот выбор хранится только в браузере читателя (localStorage демо-страницы).</p>
+  <h3>Ссылки</h3>
+  <div class="links">
+    <a href="../../games/eu-solar-record/">Spiel öffnen (DE)</a>
+    <a href="../../games/eu-solar-record/?lang=en">Open the game (EN)</a>
+    <a href="../../games/eu-solar-record/game.json">game.json</a>
+    <a href="../../catalog.json">catalog.json</a>
+  </div>
+  <h3>События виджета</h3>
+  <ul class="log" id="ng-log"><li class="empty">Примите согласие, прокрутите до блока игры и нажмите кнопку.</li></ul>
+</section>
+
+<script>
+  // Stand-in for a consent management platform (CMP).
+  (function () {
+    var KEY = "demo-consent-functional";
+    var cmp = document.getElementById("cmp"), ph = document.getElementById("placeholder");
+    function get() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
+    function set(v) { try { localStorage.setItem(KEY, v); } catch (e) { /* storage blocked: ask again next time */ } }
+    var loaded = false;
+    function activate() {
+      if (loaded) return;
+      loaded = true;
+      ph.hidden = true;
+      document.querySelectorAll('script[type="text/plain"][data-consent="functional"]').forEach(function (tag) {
+        var s = document.createElement("script");
+        s.src = tag.getAttribute("data-src");
+        s.async = true;
+        s.setAttribute("data-site", tag.getAttribute("data-site"));
+        tag.parentNode.insertBefore(s, tag.nextSibling);
+      });
+    }
+    function decide(v) {
+      set(v);
+      cmp.hidden = true;
+      if (v === "yes") activate(); else if (!loaded) ph.hidden = false;
+    }
+    document.getElementById("accept").addEventListener("click", function () { decide("yes"); });
+    document.getElementById("reject").addEventListener("click", function () { decide("no"); });
+    document.getElementById("ph-accept").addEventListener("click", function () { decide("yes"); });
+    document.getElementById("reopen").addEventListener("click", function () { cmp.hidden = false; document.getElementById("accept").focus(); });
+    var v = get();
+    if (v === "yes") activate();
+    else if (v === "no") ph.hidden = false;
+    else cmp.hidden = false;
+  })();
+</script>
+<script src="../panel.js"></script>
+</body>
+</html>

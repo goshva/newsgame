@@ -60,8 +60,21 @@
       "background:var(--ng-pop,#ffcc33);color:#14182b}" +
     "button:focus-visible{outline:2px solid var(--ng-accent,#2f4de0);outline-offset:3px}" +
     ".n{font-size:13px;opacity:.65}" +
+    ".s{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:13px;opacity:.85;border-top:1px dashed rgba(127,127,127,.4);padding-top:8px;margin-top:4px}" +
+    ".s span{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border:1px solid currentColor;border-radius:4px;padding:2px 6px}" +
     "iframe{display:block;width:100%;border:0;border-radius:10px;background:transparent;height:460px}" +
     "@media (prefers-reduced-motion:no-preference){iframe{transition:height .2s ease}}";
+
+  // Constructable stylesheets work under a strict CSP without 'unsafe-inline'; <style> is the fallback.
+  var sheet = null;
+  function applyStyles(root) {
+    try {
+      if (!sheet) { sheet = new CSSStyleSheet(); sheet.replaceSync(CSS); }
+      root.adoptedStyleSheets = [sheet];
+    } catch (err) {
+      var style = document.createElement("style"); style.textContent = CSS; root.appendChild(style);
+    }
+  }
 
   function setup(box) {
     if (box.getAttribute("data-ng-ready")) return;
@@ -98,7 +111,7 @@
     var root = box.shadowRoot || box.attachShadow({ mode: "open" });
     var t = chosen.t;
     root.innerHTML = "";
-    var style = document.createElement("style"); style.textContent = CSS;
+    applyStyles(root);
     var wrap = document.createElement("div"); wrap.className = "t"; wrap.setAttribute("lang", chosen.lang);
     wrap.innerHTML = '<div class="l"><span class="i" aria-hidden="true"><b></b><b></b><b></b><b></b></span><span></span></div><h3></h3><p></p><div class="f"><button type="button"></button><span class="n"></span></div>';
     wrap.querySelector(".l span:last-child").textContent = t.label;
@@ -106,7 +119,14 @@
     wrap.querySelector("p").textContent = t.text;
     wrap.querySelector("button").textContent = t.cta;
     wrap.querySelector(".n").textContent = t.note || "";
-    root.appendChild(style);
+    // Sponsored games are always labelled, in the teaser's language.
+    if (g.sponsor) {
+      var s = document.createElement("div"); s.className = "s";
+      var tag = document.createElement("span"); tag.textContent = pick(g.sponsor.tag, chosen.lang).t;
+      s.appendChild(tag);
+      s.appendChild(document.createTextNode(pick(g.sponsor.label, chosen.lang).t + " " + g.sponsor.name));
+      wrap.appendChild(s);
+    }
     root.appendChild(wrap);
 
     if ("IntersectionObserver" in window) {
@@ -144,6 +164,7 @@
     }, TIMEOUT);
 
     function onMessage(e) {
+      if (!box.isConnected) return cleanup(); // single-page apps may remove the article at any time
       if (e.source !== frame.contentWindow) return;
       if (e.origin !== "null" && e.origin !== gameOrigin) return;
       var d = e.data;
@@ -172,6 +193,21 @@
   function init() {
     var boxes = document.querySelectorAll(".news-game");
     for (var i = 0; i < boxes.length; i++) setup(boxes[i]);
+    // Single-page apps render new articles without a page load: pick up containers added later.
+    if ("MutationObserver" in window) {
+      new MutationObserver(function (records) {
+        for (var r = 0; r < records.length; r++) {
+          var added = records[r].addedNodes;
+          for (var n = 0; n < added.length; n++) {
+            var node = added[n];
+            if (node.nodeType !== 1) continue;
+            if (node.matches(".news-game")) setup(node);
+            var inner = node.querySelectorAll(".news-game");
+            for (var k = 0; k < inner.length; k++) setup(inner[k]);
+          }
+        }
+      }).observe(document.body || document.documentElement, { childList: true, subtree: true });
+    }
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init); else init();
 })();

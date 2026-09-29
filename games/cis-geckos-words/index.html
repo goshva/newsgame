@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ru" data-game="cis-geckos-words">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Слово из новости: гекконы</title>
+<link rel="stylesheet" href="../shared/game.css">
+<style>
+  .round { font-size: 14px; color: var(--muted); font-weight: 600; margin: 0; }
+  .hint { font-size: 17px; font-weight: 600; margin: 4px 0 12px; }
+  .board { display: grid; gap: 6px; justify-content: center; margin-bottom: 12px; }
+  .rowg { display: grid; gap: 6px; }
+  .tile { width: 46px; height: 46px; display: grid; place-items: center; font-size: 22px; font-weight: 800; border: 2px solid var(--line); border-radius: 6px; text-transform: uppercase; }
+  .tile.filled { border-color: var(--muted); }
+  .tile.hit { background: #2e8b57; border-color: #2e8b57; color: #fff; }
+  .tile.near { background: #d4a017; border-color: #d4a017; color: #14182b; }
+  .tile.miss { background: var(--muted); border-color: var(--muted); color: var(--bg); }
+  .kb { display: grid; gap: 5px; }
+  .kr { display: flex; justify-content: center; gap: 4px; }
+  .key { min-width: 0; flex: 1; max-width: 38px; height: 44px; padding: 0; border-radius: 6px; border: 0; background: var(--surface); color: var(--ink); font-weight: 700; cursor: pointer; }
+  .key.wide { max-width: 72px; flex: 1.8; font-size: 12px; }
+  .key.hit { background: #2e8b57; color: #fff; } .key.near { background: #d4a017; color: #14182b; } .key.miss { opacity: .35; }
+  .msg { min-height: 1.5em; text-align: center; font-weight: 600; margin: 0 0 8px; }
+  @media (max-width: 380px) { .tile { width: 40px; height: 40px; font-size: 19px; } .key { height: 40px; } }
+</style>
+</head>
+<body>
+<main id="stage"></main>
+<script src="../shared/runtime.js"></script>
+<script src="game.js"></script>
+</body>
+</html>

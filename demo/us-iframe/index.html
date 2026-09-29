@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Crew-13 launch moved after Dragon leak — Launchpad Weekly (demo)</title>
+<link rel="stylesheet" href="../demo.css">
+<style>
+  body { background: #f4f2ee; font-family: "Helvetica Neue", Arial, system-ui, sans-serif; }
+  .mast { border: 0; background: #141414; color: #fff; text-align: left; display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; padding: 18px 24px; }
+  .mast .name { font: 900 26px/1 "Helvetica Neue", Arial, sans-serif; letter-spacing: -.02em; text-transform: uppercase; }
+  .mast .name b { color: #ff6a13; }
+  .mast .date { color: #bbb; margin: 0; }
+  .menu { background: #fff; }
+  article { font-family: Georgia, serif; }
+  .rubric { color: #ff6a13; }
+  h1 { font-family: "Helvetica Neue", Arial, sans-serif; font-weight: 900; letter-spacing: -.01em; }
+  .figure { background: linear-gradient(160deg, #1b2a4a, #0b1020 60%, #ff6a13 160%); color: #fff; }
+  .embed-note { font: 13px/1.4 system-ui, sans-serif; color: #62646b; margin: 28px 0 8px; text-transform: uppercase; letter-spacing: .08em; font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="ribbon" lang="ru"><span>Демо интеграции NewsGame: прямой iframe без скрипта. Это макет, а не сайт издания.</span><a href="#integration">Как встроено ↓</a><a href="../../games/">Все игры</a></div>
+<header class="mast"><div class="name">Launchpad <b>Weekly</b></div><div class="date">Space business · September 2026</div></header>
+<nav class="menu" aria-label="Sections"><span>Launches</span><span>ISS</span><span>Industry</span><span>Science</span></nav>
+<article>
+  <div class="rubric">Human spaceflight</div>
+  <h1>Crew-13 launch moved after oxidizer leak found on Dragon</h1>
+  <div class="byline">Demo article · summary written for the integration demo</div>
+  <div class="figure" aria-hidden="true">Illustration</div>
+  <p>NASA and SpaceX have moved the launch of Crew-13 to the International Space Station. Teams found an oxidizer leak on Dragon's propulsion system during standard prelaunch processing and are running more tests before a new date is set.</p>
+  <p>NASA astronauts Jessica Watkins and Luke Delaney will fly as commander and pilot. Canadian Space Agency astronaut Joshua Kutryk and Roscosmos cosmonaut Sergey Teteryatnikov will serve as mission specialists and join Expedition 75 on the station.</p>
+  <p>The crew will launch on a Falcon 9 from Space Launch Complex 40 at Cape Canaveral Space Force Station in Florida.</p>
+  <p class="source">Based on reporting by <a href="https://www.space.com/space-exploration/launches-spacecraft/spacex-nasa-delay-next-astronaut-launch-to-iss-due-to-leak-on-dragon-spacecraft" target="_blank" rel="noopener">Space.com</a> and the <a href="https://www.nasa.gov/blogs/spacestation/2026/08/29/nasa-spacex-adjust-crew-13-launch-date/" target="_blank" rel="noopener">NASA space station blog</a></p>
+
+  <p class="embed-note">Play the story</p>
+  <!-- NewsGame: plain iframe, no script -->
+  <iframe src="../../games/us-crew13-roster/?lang=en"
+          title="Crew-13: mission briefing"
+          sandbox="allow-scripts"
+          loading="lazy" referrerpolicy="no-referrer"
+          style="width:100%;height:620px;border:0;border-radius:10px;background:#fff"></iframe>
+  <!-- /NewsGame -->
+</article>
+<aside class="related"><h2>More launches</h2><ul><li>Roman telescope may have fuel for 22 years</li><li>Youngest planet ever found: Elias 2-24 b</li></ul></aside>
+
+<section class="panel" id="integration" lang="ru" aria-label="Интеграция">
+  <h2>Способ: прямой iframe без скрипта</h2>
+  <p>Резервный вариант для CMS, которые не разрешают сторонние скрипты. Издатель вставляет только iframe с адресом игры.</p>
+  <pre><code>&lt;iframe src="https://goshva.github.io/newsgame/games/us-crew13-roster/?lang=en"
+        title="Crew-13: mission briefing"
+        sandbox="allow-scripts"
+        loading="lazy" referrerpolicy="no-referrer"
+        style="width:100%;height:620px;border:0"&gt;&lt;/iframe&gt;</code></pre>
+  <h3>Чем отличается от loader</h3>
+  <p>Нет тизера: игра видна сразу и загружается, когда iframe подходит к экрану. Высота фиксированная, потому что без loader игре некому сообщить свой размер. Кнопка «Вернуться к статье» скрыта. События не собираются, выключить игру через каталог нельзя: для этого нужно убрать iframe из статьи.</p>
+  <h3>Ссылки</h3>
+  <div class="links">
+    <a href="../../games/us-crew13-roster/">Открыть игру напрямую</a>
+    <a href="../../games/us-crew13-roster/game.json">game.json</a>
+    <a href="../../games/">Все игры и способы интеграции</a>
+  </div>
+</section>
+</body>
+</html>

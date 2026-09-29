@@ -4,23 +4,29 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Игры NewsGame</title>
-<meta name="description" content="Пять демо-игр по новостям пяти регионов: прямые ссылки на игры и на их встраивание в страницу издателя.">
+<meta name="description" content="Десять демо-игр по новостям пяти регионов и десять макетов изданий с разными способами встраивания.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='7' height='7' fill='%232f4de0'/%3E%3Crect x='9' width='7' height='7' fill='%2314182b'/%3E%3Crect y='9' width='7' height='7' fill='%2314182b'/%3E%3Crect x='9' y='9' width='7' height='7' fill='%23ffcc33'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="../style.css">
 <style>
-  .list { display: grid; gap: 16px; }
-  .g { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 6px 20px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 20px; }
-  @media (max-width: 640px) { .g { grid-template-columns: minmax(0, 1fr); } }
-  .g .reg { display: grid; gap: 6px; align-content: start; }
-  .g h3 { font-size: 20px; }
-  .g p { color: var(--muted); }
-  .g .body { display: grid; gap: 8px; min-width: 0; }
-  .g .links { display: flex; flex-wrap: wrap; gap: 8px 10px; margin-top: 4px; }
-  .g .links a { font-weight: 600; padding: 7px 12px; border-radius: 999px; border: 1px solid var(--line); text-decoration: none; background: var(--bg); }
-  .g .links a.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
-  .mech { font-size: 14px; }
+  .list { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+  @media (max-width: 400px) { .list { grid-template-columns: minmax(0, 1fr); } }
+  .g { display: grid; gap: 10px; align-content: start; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; min-width: 0; }
+  .g .reg { display: flex; flex-wrap: wrap; gap: 6px; }
+  .g h3 { font-size: 19px; }
+  .g p { color: var(--muted); font-size: 15px; }
+  .g .mech { color: var(--ink); font-weight: 600; font-size: 14px; }
+  .links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 2px; }
+  .links a { font-weight: 600; font-size: 14px; padding: 7px 12px; border-radius: 999px; border: 1px solid var(--line); text-decoration: none; background: var(--bg); }
+  .links a.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+  .tbl { overflow-x: auto; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+  table { border-collapse: collapse; width: 100%; min-width: 760px; font-size: 15px; }
+  th, td { text-align: left; vertical-align: top; padding: 12px 14px; border-bottom: 1px solid var(--line); }
+  th { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); background: var(--bg); }
+  tr:last-child td { border-bottom: 0; }
+  td small { display: block; color: var(--muted); font-size: 13px; margin-top: 2px; }
   pre { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 14px; overflow-x: auto; font: 13px/1.5 ui-monospace, Consolas, monospace; margin: 0; }
   .facts { display: grid; gap: 8px; padding-left: 20px; max-width: 72ch; }
+  .new { background: var(--pop); color: var(--pop-ink); }
 </style>
 </head>
 <body>
@@ -30,9 +36,10 @@
       <span class="logo-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
       <span>NewsGame</span>
     </a>
-    <nav class="nav" aria-label="Разделы" style="display:flex">
+    <nav class="nav" aria-label="Разделы">
       <a href="#games">Игры</a>
-      <a href="#embed">Встраивание</a>
+      <a href="#publishers">Издания и интеграция</a>
+      <a href="#embed">Как устроено</a>
       <a href="../dev-task.html">ТЗ</a>
       <a href="../">Главная</a>
     </nav>
@@ -42,8 +49,8 @@
 <main>
   <section class="block" style="padding-top:48px">
     <p class="eyebrow">Демо по ТЗ · proof of concept</p>
-    <h1 style="font-size:clamp(30px,4.6vw,48px)">Пять игр к новостям пяти регионов</h1>
-    <p class="section-lede">У каждой игры две ссылки: сама игра в полноэкранном режиме и макет страницы издателя, куда она встроена одной вставкой кода. На макете внизу видно код вставки и журнал событий виджета.</p>
+    <h1 style="font-size:clamp(30px,4.6vw,48px)">10 игр к новостям пяти регионов</h1>
+    <p class="section-lede">У каждой игры есть прямая ссылка и макет издания, в который она встроена. Все десять изданий подключают игру по-разному: loader, прямой iframe, SPA, блок в середине статьи со спонсором, строгая CSP, загрузка после согласия на cookies.</p>
   </section>
 
   <section id="games" class="block">
@@ -51,82 +58,111 @@
     <div class="list">
       <article class="g">
         <div class="reg"><span class="chip">США</span><span class="chip chip-lang">EN</span></div>
-        <div class="body">
-          <h3>Grow a newborn planet</h3>
-          <p class="mech">Аркада на одной кнопке: удерживайте, чтобы поднять планету на внешнюю орбиту, собирайте газ, уворачивайтесь от вспышек. 60 секунд. По материалу Space.com об Elias 2-24 b.</p>
-          <div class="links">
-            <a class="primary" href="us-elias-2-24b/">Играть</a>
-            <a href="../demo/us/#integration">Встроено в страницу</a>
-            <a href="us-elias-2-24b/game.json">game.json</a>
-          </div>
-        </div>
+        <h3>Grow a newborn planet</h3>
+        <p class="mech">Аркада на одной кнопке</p>
+        <p>Удерживайте, чтобы поднять планету на внешнюю орбиту: собирайте газ, уворачивайтесь от вспышек. Space.com, Elias 2-24 b.</p>
+        <div class="links"><a class="primary" href="us-elias-2-24b/">Играть</a><a href="../demo/us/">В издании</a><a href="us-elias-2-24b/game.json">game.json</a></div>
+      </article>
+      <article class="g">
+        <div class="reg"><span class="chip">США</span><span class="chip chip-lang">EN</span><span class="chip new">Новая</span></div>
+        <h3>Crew-13: mission briefing</h3>
+        <p class="mech">Распределение ролей + брифинг</p>
+        <p>Рассадите экипаж по креслам и ответьте на три вопроса о переносе запуска. Space.com и блог NASA.</p>
+        <div class="links"><a class="primary" href="us-crew13-roster/">Играть</a><a href="../demo/us-iframe/">В издании</a><a href="us-crew13-roster/game.json">game.json</a></div>
       </article>
       <article class="g">
         <div class="reg"><span class="chip">СНГ</span><span class="chip chip-lang">RU</span></div>
-        <div class="body">
-          <h3>ИИ-гонка: верю / не верю</h3>
-          <p class="mech">7 карточек со свайпом (или кнопками и стрелками ← →). После каждого ответа — пояснение по статье. По материалу «Коммерсанта».</p>
-          <div class="links">
-            <a class="primary" href="cis-gref-ai-race/">Играть</a>
-            <a href="../demo/cis/#integration">Встроено в страницу</a>
-            <a href="cis-gref-ai-race/game.json">game.json</a>
-          </div>
-        </div>
+        <h3>ИИ-гонка: верю / не верю</h3>
+        <p class="mech">Карточки со свайпом</p>
+        <p>7 утверждений, после каждого — пояснение по статье. «Коммерсантъ».</p>
+        <div class="links"><a class="primary" href="cis-gref-ai-race/">Играть</a><a href="../demo/cis/">В издании</a><a href="../demo/cis-spa/?a=ai">В SPA</a><a href="cis-gref-ai-race/game.json">game.json</a></div>
+      </article>
+      <article class="g">
+        <div class="reg"><span class="chip">СНГ</span><span class="chip chip-lang">RU</span><span class="chip new">Новая</span></div>
+        <h3>Слово из новости: гекконы</h3>
+        <p class="mech">Угадай слово за 6 попыток</p>
+        <p>Три слова из научной новости о новых видах гекконов, экранная и физическая клавиатура. «Санкт-Петербургские ведомости».</p>
+        <div class="links"><a class="primary" href="cis-geckos-words/">Играть</a><a href="../demo/cis-spa/">В SPA</a><a href="cis-geckos-words/game.json">game.json</a></div>
       </article>
       <article class="g">
         <div class="reg"><span class="chip">Индия</span><span class="chip chip-lang">EN</span></div>
-        <div class="body">
-          <h3>Chase 296</h3>
-          <p class="mech">Батинг на тайминг: одно нажатие — один овер, чем ближе к линии, тем больше ранов. 50 оверов, 10 калиток. Весит меньше 20 KB. По материалу ESPNcricinfo.</p>
-          <div class="links">
-            <a class="primary" href="in-ind-wi-odi1/">Играть</a>
-            <a href="../demo/in/#integration">Встроено в страницу</a>
-            <a href="in-ind-wi-odi1/game.json">game.json</a>
-          </div>
-        </div>
+        <h3>Chase 296</h3>
+        <p class="mech">Батинг на тайминг</p>
+        <p>Одно нажатие — один овер, 296 ранов за 50 оверов. ESPNcricinfo.</p>
+        <div class="links"><a class="primary" href="in-ind-wi-odi1/">Играть</a><a href="../demo/in/">В издании</a><a href="in-ind-wi-odi1/game.json">game.json</a></div>
+      </article>
+      <article class="g">
+        <div class="reg"><span class="chip">Индия</span><span class="chip chip-lang">EN · HI</span><span class="chip new">Новая</span></div>
+        <h3>Javelin final</h3>
+        <p class="mech">Бросок: сила и угол</p>
+        <p>Три попытки против реальных медальных результатов Азиатских игр. Olympics.com.</p>
+        <div class="links"><a class="primary" href="in-asiad-javelin/">Играть</a><a href="in-asiad-javelin/?lang=hi">हिन्दी</a><a href="../demo/in-sponsored/">В издании</a><a href="in-asiad-javelin/game.json">game.json</a></div>
       </article>
       <article class="g">
         <div class="reg"><span class="chip">Китай</span><span class="chip chip-lang">ZH · EN</span></div>
-        <div class="body">
-          <h3>猜数字：全国科普月</h3>
-          <p class="mech">6 раундов «угадай число» ползунком, очки за близость. Переключатель zh / en внутри игры, только системные шрифты, никаких внешних запросов. По материалу China Daily.</p>
-          <div class="links">
-            <a class="primary" href="cn-science-month/">Играть</a>
-            <a href="cn-science-month/?lang=en">Играть (EN)</a>
-            <a href="../demo/cn/#integration">Встроено в страницу</a>
-            <a href="cn-science-month/game.json">game.json</a>
-          </div>
-        </div>
+        <h3>猜数字：全国科普月</h3>
+        <p class="mech">Угадай число ползунком</p>
+        <p>6 раундов, очки за близость к ответу. China Daily.</p>
+        <div class="links"><a class="primary" href="cn-science-month/">Играть</a><a href="../demo/cn/">В издании</a><a href="cn-science-month/game.json">game.json</a></div>
+      </article>
+      <article class="g">
+        <div class="reg"><span class="chip">Китай</span><span class="chip chip-lang">ZH · EN</span><span class="chip new">Новая</span></div>
+        <h3>高铁排排看</h3>
+        <p class="mech">Сортировка</p>
+        <p>Расставьте четыре новые линии высокоскоростных железных дорог по длине, затем по времени в пути. Синьхуа.</p>
+        <div class="links"><a class="primary" href="cn-hsr-lines/">Играть</a><a href="cn-hsr-lines/?lang=en">EN</a><a href="../demo/cn-csp/">В издании</a><a href="cn-hsr-lines/game.json">game.json</a></div>
       </article>
       <article class="g">
         <div class="reg"><span class="chip">Европа</span><span class="chip chip-lang">EN</span></div>
-        <div class="body">
-          <h3>Young scientist memory</h3>
-          <p class="mech">Memory на 12 карт: найдите 6 пар «факт — что он значит». Полностью с клавиатуры. Без cookies и localStorage. По материалу RTÉ News о EUCYS 2026.</p>
-          <div class="links">
-            <a class="primary" href="eu-eucys-2026/">Играть</a>
-            <a href="../demo/eu/#integration">Встроено в страницу</a>
-            <a href="eu-eucys-2026/game.json">game.json</a>
-          </div>
-        </div>
+        <h3>Young scientist memory</h3>
+        <p class="mech">Memory, 6 пар</p>
+        <p>Факты о конкурсе EUCYS 2026 в Киле. RTÉ News.</p>
+        <div class="links"><a class="primary" href="eu-eucys-2026/">Играть</a><a href="../demo/eu/">В издании</a><a href="eu-eucys-2026/game.json">game.json</a></div>
+      </article>
+      <article class="g">
+        <div class="reg"><span class="chip">Европа</span><span class="chip chip-lang">DE · EN</span><span class="chip new">Новая</span></div>
+        <h3>Solar-Lückentext</h3>
+        <p class="mech">Текст с пропусками</p>
+        <p>Вставьте цифры рекорда солнечной генерации в Германии, два варианта лишние. Solarserver.</p>
+        <div class="links"><a class="primary" href="eu-solar-record/">Spielen</a><a href="eu-solar-record/?lang=en">EN</a><a href="../demo/eu-consent/">В издании</a><a href="eu-solar-record/game.json">game.json</a></div>
       </article>
     </div>
   </section>
 
+  <section id="publishers" class="block">
+    <h2>Издания и способы интеграции</h2>
+    <p class="section-lede">Все издания — макеты с вымышленными названиями. Тексты статей написаны заново, со ссылкой на оригинал. Внизу каждого макета показан код вставки и журнал событий виджета.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Макет издания</th><th>Способ интеграции</th><th>Что показывает</th><th>Игра</th></tr></thead>
+      <tbody>
+        <tr><td><a href="../demo/us/">Newsroom Demo</a><small>США · EN</small></td><td>Loader + контейнер после статьи</td><td>Базовый путь: тизер при приближении к экрану, iframe по клику, подстройка высоты, события</td><td>Grow a newborn planet</td></tr>
+        <tr><td><a href="../demo/cis/">Демо-редакция</a><small>СНГ · RU</small></td><td>Loader + контейнер после статьи</td><td>То же на русском</td><td>ИИ-гонка</td></tr>
+        <tr><td><a href="../demo/in/">Newsroom Demo · India</a><small>Индия · EN</small></td><td>Loader + контейнер после статьи</td><td>Лёгкая игра для недорогих телефонов</td><td>Chase 296</td></tr>
+        <tr><td><a href="../demo/cn/">新闻演示站</a><small>Китай · ZH</small></td><td>Loader + контейнер после статьи</td><td>Тизер на zh-CN, без внешних шрифтов</td><td>猜数字</td></tr>
+        <tr><td><a href="../demo/eu/">Newsroom Demo · Europe</a><small>Европа · EN</small></td><td>Loader + контейнер после статьи</td><td>Игра без cookies и localStorage</td><td>Young scientist memory</td></tr>
+        <tr><td><a href="../demo/us-iframe/">Launchpad Weekly</a><small>США · EN</small></td><td><strong>Прямой iframe без скрипта</strong></td><td>Резервный путь для CMS без сторонних скриптов: без тизера и событий, фиксированная высота</td><td>Crew-13 briefing</td></tr>
+        <tr><td><a href="../demo/cis-spa/">Лента-демо</a><small>СНГ · RU</small></td><td><strong>SPA без перезагрузки</strong></td><td>Loader один раз на приложение, новые статьи подхватываются автоматически; статья без игры — блок скрыт</td><td>Слово из новости, ИИ-гонка</td></tr>
+        <tr><td><a href="../demo/in-sponsored/">SportsDesk Demo</a><small>Индия · EN / HI</small></td><td><strong>Блок в середине статьи, спонсор, фирменные цвета</strong></td><td>Размещение после второго абзаца, спонсорская плашка из каталога, цвета через CSS-переменные, переключение языка тизера</td><td>Javelin final</td></tr>
+        <tr><td><a href="../demo/cn-csp/">铁路资讯演示站</a><small>Китай · ZH</small></td><td><strong>Строгая Content-Security-Policy</strong></td><td>Без inline-скриптов и стилей; какие домены добавить в CSP</td><td>高铁排排看</td></tr>
+        <tr><td><a href="../demo/eu-consent/">Demo-Rundschau</a><small>Германия · DE</small></td><td><strong>Загрузка после согласия (CMP), тёмная тема</strong></td><td>Loader активируется только после согласия, при отказе — заглушка; тизер в тёмной теме</td><td>Solar-Lückentext</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
   <section id="embed" class="block">
-    <h2>Встраивание</h2>
-    <p class="section-lede">Издатель добавляет после текста статьи один фрагмент. Loader читает каталог, показывает тизер, когда блок подходит к экрану, и открывает игру по клику в iframe с <code>sandbox="allow-scripts"</code>.</p>
+    <h2>Как устроено</h2>
+    <p class="section-lede">Базовая вставка: контейнер после статьи и асинхронный loader.</p>
 <pre><code>&lt;div class="news-game"
      data-placement="article-end"
      data-article-id="us-elias-2-24b"
      data-lang="en"&gt;&lt;/div&gt;
 &lt;script async src="https://goshva.github.io/newsgame/widget/v1.js" data-site="demo-us"&gt;&lt;/script&gt;</code></pre>
     <ul class="facts">
-      <li><a href="../widget/v1.js">widget/v1.js</a> — loader без зависимостей: тизер в Shadow DOM, ленивый показ, iframe по клику, проверка источника сообщений, таймаут 5 с, скрытие блока при любой ошибке.</li>
-      <li><a href="../catalog.json">catalog.json</a> — какая игра к какой статье, тексты тизеров, срок актуальности, <code>enabled</code> для отключения игры или площадки.</li>
+      <li><a href="../widget/v1.js">widget/v1.js</a> — loader без зависимостей: тизер в Shadow DOM, ленивый показ, iframe по клику с <code>sandbox="allow-scripts"</code>, проверка источника сообщений, таймаут 5 с, скрытие при ошибке, поддержка SPA и строгой CSP, спонсорская плашка.</li>
+      <li><a href="../catalog.json">catalog.json</a> — какая игра к какой статье, тексты тизеров на языках, спонсор, срок актуальности, <code>enabled</code> для отключения игры или площадки.</li>
       <li><a href="shared/runtime.js">games/shared/runtime.js</a> — общая оболочка игр: загрузка <code>game.json</code>, кнопки «Заново», «Пауза», «Вернуться к статье», протокол <code>postMessage</code> v1, отчёт о высоте.</li>
-      <li>События виджета: <code>config_request</code>, <code>visible</code>, <code>launch</code>, <code>start</code>, <code>complete</code>, <code>error</code>, <code>exit</code>. Страница получает их как <code>newsgame:event</code>.</li>
-      <li>Сохранённые копии страниц реальных изданий не публикуются: макеты статей написаны заново, со ссылкой на оригинал.</li>
+      <li>Цвета тизера: <code>--ng-accent</code>, <code>--ng-pop</code>, <code>--ng-surface</code> на контейнере.</li>
+      <li>События: <code>config_request</code>, <code>visible</code>, <code>launch</code>, <code>ready</code>, <code>start</code>, <code>complete</code>, <code>error</code>, <code>exit</code>. Страница получает их как <code>newsgame:event</code>.</li>
     </ul>
   </section>
 </main>

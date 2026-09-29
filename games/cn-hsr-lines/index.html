@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="zh-CN" data-game="cn-hsr-lines">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>高铁排排看</title>
+<link rel="stylesheet" href="../shared/game.css">
+<style>
+  .rt { font-size: 17px; font-weight: 700; margin: 0 0 12px; }
+  .list { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+  .item { display: grid; grid-template-columns: 30px 1fr auto; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface); }
+  .item .n { font-weight: 800; color: var(--accent); font-variant-numeric: tabular-nums; }
+  .item .nm { font-weight: 700; font-size: 17px; }
+  .item .val { display: block; font-size: 14px; color: var(--muted); font-weight: 500; }
+  .item.ok { border-color: var(--ok); box-shadow: inset 4px 0 0 var(--ok); }
+  .item.bad { border-color: var(--err); box-shadow: inset 4px 0 0 var(--err); }
+  .mv { display: flex; gap: 4px; }
+  .mv button { width: 40px; min-height: 40px; padding: 0; }
+  .track { height: 6px; border-radius: 3px; background: repeating-linear-gradient(90deg, var(--ink) 0 14px, transparent 14px 20px); opacity: .25; margin: 14px 0; }
+  .row { display: flex; gap: 10px; margin-top: 12px; flex-wrap: wrap; }
+  .fb { margin: 12px 0 0; }
+</style>
+</head>
+<body>
+<main id="stage"></main>
+<script src="../shared/runtime.js"></script>
+<script src="game.js"></script>
+</body>
+</html>

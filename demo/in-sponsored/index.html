@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Sports Desk Demo — Asian Games javelin</title>
+<link rel="stylesheet" href="../demo.css">
+<style>
+  body { background: #f3f6f4; font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Nirmala UI", sans-serif; }
+  :lang(hi) article, :lang(hi) h1 { font-family: "Nirmala UI", "Mangal", "Noto Sans Devanagari", sans-serif; }
+  .mast { background: #0b6e4f; color: #fff; border: 0; display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; text-align: left; padding: 16px 20px; }
+  .mast .name { font: 900 24px/1 system-ui, sans-serif; letter-spacing: -.01em; }
+  .mast .name span { color: #ffb347; }
+  .langsw { display: flex; gap: 4px; background: rgba(255,255,255,.15); padding: 3px; border-radius: 999px; }
+  .langsw button { border: 0; background: none; color: #fff; font: 700 13px/1 system-ui, "Nirmala UI", sans-serif; padding: 8px 12px; border-radius: 999px; cursor: pointer; }
+  .langsw button[aria-pressed="true"] { background: #fff; color: #0b6e4f; }
+  .menu { background: #fff; }
+  article { font-family: Georgia, serif; }
+  .rubric { color: #0b6e4f; }
+  .figure { background: linear-gradient(120deg, #0b6e4f, #6fcf97); color: #fff; }
+  /* Publisher branding for the NewsGame teaser: custom properties cross into the widget's shadow root */
+  .news-game { --ng-accent: #0b6e4f; --ng-pop: #ffb347; --ng-surface: #ffffff; margin: 28px 0; }
+</style>
+</head>
+<body>
+<div class="ribbon" lang="ru"><span>Демо интеграции NewsGame: блок в середине статьи, спонсорская игра, фирменные цвета. Это макет, а не сайт издания.</span><a href="#integration">Как встроено ↓</a><a href="../../games/">Все игры</a></div>
+<header class="mast">
+  <div class="name">Sports<span>Desk</span> Demo</div>
+  <div class="langsw" role="group" aria-label="Language">
+    <button type="button" data-l="en" aria-pressed="true">EN</button>
+    <button type="button" data-l="hi" lang="hi" aria-pressed="false">हिं</button>
+  </div>
+</header>
+<nav class="menu" aria-label="Sections"><span>Asian Games</span><span>Cricket</span><span>Athletics</span><span>Kabaddi</span></nav>
+<article id="art"></article>
+
+<section class="panel" id="integration" lang="ru" aria-label="Интеграция">
+  <h2>Способ: блок в середине статьи, спонсор и фирменные цвета</h2>
+  <p>Контейнер стоит после второго абзаца (<code>data-placement="in-article"</code>). Издатель задаёт цвета тизера CSS-переменными на контейнере, а loader их подхватывает внутри Shadow DOM. Спонсорская плашка приходит из каталога и всегда подписана как реклама. Переключатель EN / हिं пересоздаёт статью с <code>data-lang="hi"</code>, и тизер показывается на хинди.</p>
+  <pre><code>&lt;style&gt;
+  .news-game { --ng-accent: #0b6e4f; --ng-pop: #ffb347; --ng-surface: #fff; }
+&lt;/style&gt;
+&lt;p&gt;…второй абзац…&lt;/p&gt;
+&lt;div class="news-game" data-placement="in-article"
+     data-article-id="in-asiad-javelin" data-lang="en"&gt;&lt;/div&gt;
+&lt;p&gt;…статья продолжается…&lt;/p&gt;
+&lt;script async src="https://goshva.github.io/newsgame/widget/v1.js" data-site="demo-in-sponsor"&gt;&lt;/script&gt;</code></pre>
+  <p>Спонсор в <code>catalog.json</code>: <code>"sponsor": { "name": "Demo Sports Brand", "tag": {…}, "label": {…} }</code>. Бренд вымышленный.</p>
+  <h3>Ссылки</h3>
+  <div class="links">
+    <a href="../../games/in-asiad-javelin/">Открыть игру (EN)</a>
+    <a href="../../games/in-asiad-javelin/?lang=hi">Открыть игру (हिन्दी)</a>
+    <a href="../../games/in-asiad-javelin/game.json">game.json</a>
+    <a href="../../catalog.json">catalog.json</a>
+  </div>
+  <h3>События виджета</h3>
+  <ul class="log" id="ng-log"><li class="empty">Прокрутите до блока игры и нажмите кнопку.</li></ul>
+</section>
+
+<script>
+  var TEXT = {
+    en: {
+      rubric: "Asian Games · Athletics",
+      title: "Double javelin podium for India as Tharanga takes gold",
+      byline: "Demo article · summary written for the integration demo",
+      p: [
+        "India's Yash Vir Singh and Rohit Yadav won silver and bronze in the men's javelin at the Asian Games in Aichi-Nagoya.",
+        "Yash Vir Singh threw a personal best of 85.72 m and Rohit Yadav reached 84.35 m at the Nagoya City Mizuho Park Athletic Stadium.",
+        "Sri Lanka's Rumesh Tharanga won gold with 88.55 m. Pakistan's Olympic champion Arshad Nadeem finished fourth with 80.29 m.",
+        "India competed without Neeraj Chopra, who missed the Games with a ligament tear."
+      ],
+      source: "Based on reporting by"
+    },
+    hi: {
+      rubric: "एशियाई खेल · एथलेटिक्स",
+      title: "भाला फेंक में भारत के दो पदक, थरंगा को स्वर्ण",
+      byline: "डेमो लेख · इंटीग्रेशन डेमो के लिए लिखा गया सारांश",
+      p: [
+        "आइची-नागोया एशियाई खेलों में पुरुषों की भाला फेंक स्पर्धा में भारत के यश वीर सिंह और रोहित यादव ने रजत और कांस्य पदक जीते।",
+        "नागोया सिटी मिज़ुहो पार्क एथलेटिक स्टेडियम में यश वीर सिंह ने 85.72 मीटर का व्यक्तिगत सर्वश्रेष्ठ थ्रो किया और रोहित यादव ने 84.35 मीटर फेंका।",
+        "श्रीलंका के रुमेश थरंगा ने 88.55 मीटर के साथ स्वर्ण जीता। पाकिस्तान के ओलंपिक चैंपियन अरशद नदीम 80.29 मीटर के साथ चौथे स्थान पर रहे।",
+        "भारत नीरज चोपड़ा के बिना उतरा, जो लिगामेंट की चोट के कारण खेलों में हिस्सा नहीं ले सके।"
+      ],
+      source: "स्रोत:"
+    }
+  };
+  var art = document.getElementById("art");
+  function render(l) {
+    var t = TEXT[l];
+    document.documentElement.lang = l;
+    document.querySelectorAll(".langsw button").forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.l === l)); });
+    art.textContent = "";
+    function add(tag, cls, text) { var n = document.createElement(tag); if (cls) n.className = cls; n.textContent = text; art.appendChild(n); return n; }
+    add("div", "rubric", t.rubric);
+    add("h1", "", t.title);
+    add("div", "byline", t.byline);
+    var fig = add("div", "figure", "Photo"); fig.setAttribute("aria-hidden", "true");
+    t.p.forEach(function (p, i) {
+      add("p", "", p);
+      if (i === 1) {
+        // NewsGame: in-article placement after the second paragraph
+        var box = document.createElement("div");
+        box.className = "news-game";
+        box.setAttribute("data-placement", "in-article");
+        box.setAttribute("data-article-id", "in-asiad-javelin");
+        box.setAttribute("data-lang", l);
+        art.appendChild(box);
+      }
+    });
+    var s = add("p", "source", t.source + " ");
+    var a = document.createElement("a");
+    a.href = "https://www.olympics.com/en/news/asian-games-2026-athletics-javelin-throw-results"; a.target = "_blank"; a.rel = "noopener"; a.textContent = "Olympics.com";
+    s.appendChild(a);
+  }
+  document.querySelectorAll(".langsw button").forEach(function (b) { b.addEventListener("click", function () { render(b.dataset.l); }); });
+  render("en");
+</script>
+<script async src="../../widget/v1.js" data-site="demo-in-sponsor"></script>
+<script src="../panel.js"></script>
+</body>
+</html>
