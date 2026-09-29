@@ -8,7 +8,7 @@ Site: https://goshva.github.io/newsgame/ (published from the `gh-pages` branch, 
 |---|---|
 | [business-concept-and-requirements.md](business-concept-and-requirements.md) | Business concept and platform requirements |
 | [investor-concept-seed.md](investor-concept-seed.md) | Pre-seed investment concept and first steps per region |
-| [dev-task-regional-news-games.md](dev-task-regional-news-games.md) | Developer task: five games for five regional news stories |
+| [dev-task-regional-news-games.md](dev-task-regional-news-games.md) | Developer task (RU): five games for five regional news stories; web version: https://goshva.github.io/newsgame/dev-task.html |
 | [teasers.md](teasers.md) | Teaser copy for publishers, per region and language |
 | [commercial-offers/](commercial-offers/) | Commercial offers in EN, RU, HI, ZH, DE |
 | [site/](site/) | Landing page with partnership application and feedback forms (Formspree) |

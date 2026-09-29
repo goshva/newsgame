@@ -55,6 +55,7 @@ window.I18N = {
     "fb.message": "Message", "fb.email": "Email (optional, if you want a reply)",
     "fb.submit": "Send feedback", "fb.ok": "Thank you. Your message has been sent.",
     "footer.text": "NewsGame — games for news sites. Working project name.",
+    "footer.dev": "Developer task (in Russian)",
     "footer.docs": "Documentation on GitHub"
   },
 
@@ -113,6 +114,7 @@ window.I18N = {
     "fb.message": "Сообщение", "fb.email": "Email (необязательно, если нужен ответ)",
     "fb.submit": "Отправить", "fb.ok": "Спасибо! Сообщение отправлено.",
     "footer.text": "NewsGame — игры для новостных сайтов. Рабочее название проекта.",
+    "footer.dev": "ТЗ для разработчика",
     "footer.docs": "Документация на GitHub"
   },
 
@@ -171,6 +173,7 @@ window.I18N = {
     "fb.message": "संदेश", "fb.email": "ईमेल (वैकल्पिक, अगर आप जवाब चाहते हैं)",
     "fb.submit": "भेजें", "fb.ok": "धन्यवाद। आपका संदेश भेज दिया गया है।",
     "footer.text": "NewsGame — न्यूज़ वेबसाइटों के लिए गेम। परियोजना का कार्यशील नाम।",
+    "footer.dev": "डेवलपर के लिए कार्य (रूसी में)",
     "footer.docs": "GitHub पर दस्तावेज़"
   },
 
@@ -229,6 +232,7 @@ window.I18N = {
     "fb.message": "留言", "fb.email": "邮箱（选填，如需回复）",
     "fb.submit": "发送反馈", "fb.ok": "谢谢！您的留言已发送。",
     "footer.text": "NewsGame——新闻网站互动小游戏（项目暂定名）。",
+    "footer.dev": "开发任务书（俄文）",
     "footer.docs": "GitHub 上的文档"
   },
 
@@ -287,6 +291,7 @@ window.I18N = {
     "fb.message": "Nachricht", "fb.email": "E-Mail (optional, falls Sie eine Antwort wünschen)",
     "fb.submit": "Feedback senden", "fb.ok": "Vielen Dank. Ihre Nachricht wurde gesendet.",
     "footer.text": "NewsGame – Spiele für Nachrichtenseiten. Arbeitstitel des Projekts.",
+    "footer.dev": "Aufgabe für Entwickler (auf Russisch)",
     "footer.docs": "Dokumentation auf GitHub"
   }
 };
