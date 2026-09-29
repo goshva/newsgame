@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NewsGame</title>
+<meta name="description" content="Short games for news stories, embedded in the article with one code snippet. Free pilot for news publishers.">
+<meta property="og:title" content="NewsGame — games for news sites">
+<meta property="og:description" content="Short games for news stories, embedded in the article with one code snippet.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='7' height='7' fill='%232f4de0'/%3E%3Crect x='9' width='7' height='7' fill='%2314182b'/%3E%3Crect y='9' width='7' height='7' fill='%2314182b'/%3E%3Crect x='9' y='9' width='7' height='7' fill='%23ffcc33'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Loaded without blocking render: Google Fonts is unreachable in some regions -->
+<link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Manrope:wght@400;500;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="bar">
+  <div class="bar-in">
+    <a class="logo" href="#top" aria-label="NewsGame">
+      <span class="logo-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <span>NewsGame</span>
+    </a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#how" data-i18n="nav.how">How it works</a>
+      <a href="#examples" data-i18n="nav.examples">Examples</a>
+      <a href="#offer" data-i18n="nav.offer">Offer</a>
+      <a href="#apply" data-i18n="nav.apply">Apply</a>
+      <a href="#feedback" data-i18n="nav.feedback">Feedback</a>
+    </nav>
+    <div class="langs" role="group" aria-label="Language">
+      <button type="button" data-lang="en">EN</button>
+      <button type="button" data-lang="ru">RU</button>
+      <button type="button" data-lang="hi" lang="hi">हिं</button>
+      <button type="button" data-lang="zh" lang="zh">中文</button>
+      <button type="button" data-lang="de">DE</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow" data-i18n="hero.eyebrow">Games for news sites</p>
+      <h1 data-i18n="hero.title">A short game for every story worth playing</h1>
+      <p class="lede" data-i18n="hero.lede"></p>
+      <div class="ctas">
+        <a class="btn btn-main" href="#apply" data-i18n="hero.cta1">Apply for a free pilot</a>
+        <a class="btn btn-ghost" href="#examples" data-i18n="hero.cta2">See teaser examples</a>
+      </div>
+      <p class="note" data-i18n="hero.note"></p>
+    </div>
+    <div class="hero-demo" aria-hidden="false">
+      <div class="article-mock" aria-hidden="true">
+        <span class="line w90"></span><span class="line w100"></span><span class="line w70"></span>
+        <span class="line w95"></span><span class="line w60"></span>
+      </div>
+      <div id="hero-teaser"></div>
+    </div>
+  </section>
+
+  <section id="how" class="block">
+    <h2 data-i18n="how.title">How it works</h2>
+    <ol class="steps">
+      <li><span class="step-n">1</span><h3 data-i18n="how.s1.t"></h3><p data-i18n="how.s1.d"></p>
+        <pre class="snippet" aria-label="Embed code"><code>&lt;div class="news-game"&gt;&lt;/div&gt;
+&lt;script async src=".../v1.js"
+  data-site="your-id"&gt;&lt;/script&gt;</code></pre></li>
+      <li><span class="step-n">2</span><h3 data-i18n="how.s2.t"></h3><p data-i18n="how.s2.d"></p></li>
+      <li><span class="step-n">3</span><h3 data-i18n="how.s3.t"></h3><p data-i18n="how.s3.d"></p></li>
+    </ol>
+  </section>
+
+  <section id="examples" class="block">
+    <h2 data-i18n="ex.title">Teaser examples</h2>
+    <p class="section-lede" data-i18n="ex.lede"></p>
+    <div id="teasers" class="teasers"></div>
+    <p class="fine" data-i18n="ex.disclaimer"></p>
+  </section>
+
+  <section id="offer" class="block">
+    <h2 data-i18n="offer.title">Commercial offer</h2>
+    <p class="section-lede" data-i18n="offer.lede"></p>
+    <div class="offer-grid">
+      <div class="pilot">
+        <h3 data-i18n="offer.pilot"></h3>
+        <ul class="ticks">
+          <li data-i18n="offer.li1"></li><li data-i18n="offer.li2"></li><li data-i18n="offer.li3"></li>
+          <li data-i18n="offer.li4"></li><li data-i18n="offer.li5"></li>
+        </ul>
+      </div>
+      <div class="models">
+        <div class="model"><h3 data-i18n="offer.m1.t"></h3><p data-i18n="offer.m1.d"></p></div>
+        <div class="model"><h3 data-i18n="offer.m2.t"></h3><p data-i18n="offer.m2.d"></p></div>
+        <div class="model"><h3 data-i18n="offer.m3.t"></h3><p data-i18n="offer.m3.d"></p></div>
+      </div>
+    </div>
+    <h3 class="sub" data-i18n="offer.steps"></h3>
+    <ol class="timeline">
+      <li data-i18n="offer.st1"></li><li data-i18n="offer.st2"></li><li data-i18n="offer.st3"></li><li data-i18n="offer.st4"></li>
+    </ol>
+    <p class="promise" data-i18n="offer.promise"></p>
+
+    <h3 class="sub" data-i18n="reg.title"></h3>
+    <dl class="regions">
+      <div><dt data-i18n="name.us"></dt><dd data-i18n="reg.us"></dd></div>
+      <div><dt data-i18n="name.cis"></dt><dd data-i18n="reg.cis"></dd></div>
+      <div><dt data-i18n="name.in"></dt><dd data-i18n="reg.in"></dd></div>
+      <div><dt data-i18n="name.cn"></dt><dd data-i18n="reg.cn"></dd></div>
+      <div><dt data-i18n="name.eu"></dt><dd data-i18n="reg.eu"></dd></div>
+    </dl>
+  </section>
+
+  <section id="apply" class="block form-block">
+    <div class="form-head">
+      <h2 data-i18n="apply.title">Apply for a pilot</h2>
+      <p class="section-lede" data-i18n="apply.lede"></p>
+    </div>
+    <form id="apply-form" class="form" novalidate data-ok="apply.ok">
+      <input type="hidden" name="form_type" value="partnership">
+      <input type="hidden" name="_subject" value="NewsGame: partnership application">
+      <input type="hidden" name="language" value="en">
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
+      <label class="field"><span data-i18n="f.name"></span><input id="a-name" name="name" required autocomplete="name"></label>
+      <label class="field"><span data-i18n="f.org"></span><input id="a-org" name="organization" required autocomplete="organization"></label>
+      <label class="field"><span data-i18n="f.site"></span><input id="a-site" name="website" type="url" required placeholder="https://" autocomplete="url"></label>
+      <label class="field"><span data-i18n="f.email"></span><input id="a-email" name="email" type="email" required autocomplete="email"></label>
+      <label class="field"><span data-i18n="f.region"></span>
+        <select id="a-region" name="region" required>
+          <option value="" data-i18n="f.select"></option>
+          <option value="USA" data-i18n="name.us"></option>
+          <option value="CIS" data-i18n="name.cis"></option>
+          <option value="India" data-i18n="name.in"></option>
+          <option value="China" data-i18n="name.cn"></option>
+          <option value="Europe" data-i18n="name.eu"></option>
+          <option value="Other" data-i18n="name.other"></option>
+        </select></label>
+      <label class="field"><span data-i18n="f.role"></span><input id="a-role" name="role" autocomplete="organization-title"></label>
+      <label class="field"><span data-i18n="f.traffic"></span>
+        <select id="a-traffic" name="monthly_pageviews">
+          <option value="" data-i18n="f.select"></option>
+          <option value="<1M" data-i18n="f.traffic.1"></option>
+          <option value="1-10M" data-i18n="f.traffic.2"></option>
+          <option value=">10M" data-i18n="f.traffic.3"></option>
+          <option value="unknown" data-i18n="f.traffic.0"></option>
+        </select></label>
+      <label class="field"><span data-i18n="f.model"></span>
+        <select id="a-model" name="model">
+          <option value="" data-i18n="f.select"></option>
+          <option value="pilot" data-i18n="f.model.pilot"></option>
+          <option value="subscription" data-i18n="f.model.sub"></option>
+          <option value="sponsored" data-i18n="f.model.sponsor"></option>
+          <option value="hybrid" data-i18n="f.model.hybrid"></option>
+          <option value="unsure" data-i18n="f.model.unsure"></option>
+        </select></label>
+      <label class="field wide"><span data-i18n="f.message"></span><textarea id="a-message" name="message" rows="4"></textarea></label>
+      <label class="check wide"><input id="a-consent" type="checkbox" name="consent" value="yes" required><span data-i18n="f.consent"></span></label>
+      <div class="actions wide">
+        <button class="btn btn-main" type="submit" data-i18n="f.submit">Send application</button>
+        <p class="status" role="status" aria-live="polite"></p>
+      </div>
+    </form>
+  </section>
+
+  <section id="feedback" class="block form-block">
+    <div class="form-head">
+      <h2 data-i18n="fb.title">Feedback</h2>
+      <p class="section-lede" data-i18n="fb.lede"></p>
+    </div>
+    <form id="feedback-form" class="form" novalidate data-ok="fb.ok">
+      <input type="hidden" name="form_type" value="feedback">
+      <input type="hidden" name="_subject" value="NewsGame: feedback">
+      <input type="hidden" name="language" value="en">
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
+      <label class="field"><span data-i18n="fb.type"></span>
+        <select id="f-topic" name="topic">
+          <option value="question" data-i18n="fb.type.q"></option>
+          <option value="idea" data-i18n="fb.type.idea"></option>
+          <option value="problem" data-i18n="fb.type.bug"></option>
+          <option value="other" data-i18n="fb.type.other"></option>
+        </select></label>
+      <label class="field"><span data-i18n="fb.email"></span><input id="f-email" name="email" type="email" autocomplete="email"></label>
+      <label class="field wide"><span data-i18n="fb.message"></span><textarea id="f-message" name="message" rows="4" required></textarea></label>
+      <div class="actions wide">
+        <button class="btn btn-main" type="submit" data-i18n="fb.submit">Send feedback</button>
+        <p class="status" role="status" aria-live="polite"></p>
+      </div>
+    </form>
+  </section>
+</main>
+
+<footer class="foot">
+  <p data-i18n="footer.text"></p>
+  <a href="https://github.com/goshva/newsgame" data-i18n="footer.docs">Documentation on GitHub</a>
+</footer>
+
+<dialog id="quiz" aria-labelledby="quiz-title">
+  <div class="quiz-in"></div>
+</dialog>
+
+<script src="i18n.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
