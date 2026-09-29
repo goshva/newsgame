@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en" data-game="in-ind-wi-odi1">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chase 296</title>
+<link rel="stylesheet" href="../shared/game.css">
+<style>
+  .board { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; align-items: baseline; font-variant-numeric: tabular-nums; margin-bottom: 10px; }
+  .score { font-size: 30px; font-weight: 800; }
+  .ov { color: var(--muted); font-size: 14px; text-align: right; }
+  .need { grid-column: 1 / -1; font-size: 14px; color: var(--muted); }
+  .pitch { position: relative; height: 240px; border-radius: 12px; overflow: hidden; touch-action: manipulation; cursor: pointer;
+           background: linear-gradient(90deg, #3f7d3a 0 22%, #c9b27c 22% 78%, #3f7d3a 78%); }
+  .crease { position: absolute; left: 22%; right: 22%; height: 2px; background: #fff; }
+  .zone { position: absolute; left: 22%; right: 22%; height: 34px; background: rgba(255, 204, 51, .35); border-top: 2px solid #ffcc33; border-bottom: 2px solid #ffcc33; }
+  .ball { position: absolute; left: 50%; width: 18px; height: 18px; margin-left: -9px; border-radius: 50%; background: #c0262d; box-shadow: inset -3px -3px 0 rgba(0,0,0,.25); }
+  .shot { position: absolute; left: 0; right: 0; top: 40%; text-align: center; font-size: 28px; font-weight: 800; color: #fff; text-shadow: 0 2px 6px rgba(0,0,0,.5); pointer-events: none; }
+  .hitbtn { width: 100%; margin-top: 10px; min-height: 52px; font-size: 18px; }
+</style>
+</head>
+<body>
+<main id="stage"></main>
+<script src="../shared/runtime.js"></script>
+<script src="game.js"></script>
+</body>
+</html>

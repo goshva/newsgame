@@ -1,0 +1,55 @@
+{
+  "id": "cn-science-month",
+  "langs": ["zh", "en"],
+  "title": { "zh": "猜数字：全国科普月", "en": "Guess the number: China's science month" },
+  "article": {
+    "publisher": "China Daily",
+    "title": { "zh": "China's science month draws billions with theme of innovation", "en": "China's science month draws billions with theme of innovation" },
+    "url": "http://europe.chinadaily.com.cn/a/202609/29/WS6abb55fce4b06d4aa0560c96.html",
+    "date": "2026-09-29"
+  },
+  "demo": "../../demo/cn/",
+  "expires": "2026-11-30",
+  "note": "The '10 billion people' figure is not used until its exact wording is checked.",
+  "facts": [
+    { "id": "activities", "text": { "zh": "科普月期间，全国举办了超过 36 万场科普活动。", "en": "More than 360,000 science activities were held during the month." },
+      "quote": "more than 360,000 science popularization activities were held across the country", "quote_status": "verbatim extract", "source": "http://europe.chinadaily.com.cn/a/202609/29/WS6abb55fce4b06d4aa0560c96.html" },
+    { "id": "scientists", "text": { "zh": "超过 200 万名科学家和工程师参与其中。", "en": "Over 2 million scientists and engineers took part." },
+      "quote": "with over 2 million scientists and engineers participating", "quote_status": "verbatim extract", "source": "http://europe.chinadaily.com.cn/a/202609/29/WS6abb55fce4b06d4aa0560c96.html" },
+    { "id": "museums", "text": { "zh": "截至 2025 年底，全国共有 1988 家科技馆和科学类博物馆。", "en": "By the end of 2025, China had 1,988 science and technology museums and science-themed museums." },
+      "quote": "by the end of 2025, the country had 1,988 science and technology museums and science-themed museums", "quote_status": "verbatim extract", "source": "http://europe.chinadaily.com.cn/a/202609/29/WS6abb55fce4b06d4aa0560c96.html" },
+    { "id": "township", "text": { "zh": "建设重心向中西部和基层倾斜，其中包括 204 家乡镇科技馆。", "en": "Building is shifting to central, western and grassroots areas, including 204 township museums." },
+      "quote": "with 204 township museums forming part of that rebalancing", "quote_status": "verbatim extract", "source": "http://europe.chinadaily.com.cn/a/202609/29/WS6abb55fce4b06d4aa0560c96.html" },
+    { "id": "workers", "text": { "zh": "去年全国共有 225 万名专兼职科普工作者。", "en": "Last year China had 2.25 million full-time and part-time science communication workers." },
+      "quote": "Last year, China had 2.25 million full-time and part-time science communication workers.", "quote_status": "verbatim extract", "source": "http://europe.chinadaily.com.cn/a/202609/29/WS6abb55fce4b06d4aa0560c96.html" },
+    { "id": "literacy", "text": { "zh": "2025 年，18 至 69 岁公民中具备科学素质的比例为 17%。", "en": "In 2025, 17 percent of citizens aged 18 to 69 had attained scientific literacy." },
+      "quote": "In 2025, 17 percent of Chinese citizens aged between 18 and 69 years old had attained scientific literacy", "quote_status": "verbatim extract", "source": "http://europe.chinadaily.com.cn/a/202609/29/WS6abb55fce4b06d4aa0560c96.html" }
+  ],
+  "rounds": [
+    { "fact": "activities", "answer": 360000, "min": 10000, "max": 5000000, "scale": "log",
+      "prompt": { "zh": "科普月期间，全国举办了约多少场科普活动？", "en": "About how many science activities were held during the month?" } },
+    { "fact": "scientists", "answer": 2000000, "min": 50000, "max": 20000000, "scale": "log",
+      "prompt": { "zh": "有多少名科学家和工程师参与？", "en": "How many scientists and engineers took part?" } },
+    { "fact": "museums", "answer": 1988, "min": 100, "max": 20000, "scale": "log",
+      "prompt": { "zh": "截至 2025 年底，全国有多少家科技馆和科学类博物馆？", "en": "How many science and technology museums did China have at the end of 2025?" } },
+    { "fact": "township", "answer": 204, "min": 10, "max": 2000, "scale": "log",
+      "prompt": { "zh": "其中有多少家乡镇科技馆？", "en": "How many township museums are part of the shift to grassroots areas?" } },
+    { "fact": "workers", "answer": 2250000, "min": 100000, "max": 20000000, "scale": "log",
+      "prompt": { "zh": "去年全国有多少名专兼职科普工作者？", "en": "How many full- and part-time science communicators did China have last year?" } },
+    { "fact": "literacy", "answer": 17, "min": 0, "max": 60, "scale": "percent",
+      "prompt": { "zh": "2025 年，18 至 69 岁公民中具备科学素质的比例是多少？", "en": "In 2025, what share of citizens aged 18–69 had attained scientific literacy?" } }
+  ],
+  "text": {
+    "intro": { "zh": "九月是全国科普月。移动滑块，猜一猜报道中的数字：越接近，得分越高。共 6 题，每题最高 100 分。", "en": "September is China's National Science Popularization Month. Move the slider to guess the numbers from the story: the closer you are, the more points you score. 6 rounds, up to 100 points each." },
+    "start": { "zh": "开始", "en": "Start" },
+    "guess": { "zh": "确定", "en": "Guess" },
+    "next": { "zh": "下一题", "en": "Next" },
+    "round": { "zh": "第 {n} / {total} 题", "en": "Round {n} of {total}" },
+    "answer": { "zh": "正确答案：", "en": "Answer: " },
+    "yours": { "zh": "你的答案：", "en": "Your guess: " },
+    "points": { "zh": "分", "en": "points" },
+    "kicker": { "zh": "你的总分", "en": "Your total" },
+    "slider": { "zh": "你的估计", "en": "Your estimate" },
+    "switch": { "zh": "English", "en": "中文" }
+  }
+}

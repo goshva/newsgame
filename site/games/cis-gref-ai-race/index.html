@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ru" data-game="cis-gref-ai-race">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ИИ-гонка: верю / не верю</title>
+<link rel="stylesheet" href="../shared/game.css">
+<style>
+  .counter { font-size: 14px; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .deck { position: relative; min-height: 200px; display: grid; }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 24px 22px; font-size: 20px; font-weight: 600; line-height: 1.4;
+          display: flex; align-items: center; min-height: 190px; touch-action: pan-y; user-select: none; cursor: grab; transition: transform .25s ease, opacity .25s ease; }
+  .card.dragging { transition: none; cursor: grabbing; }
+  .card.yes { box-shadow: inset 6px 0 0 var(--ok); }
+  .card.no { box-shadow: inset -6px 0 0 var(--err); }
+  .choices { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px; }
+  .verdict { display: grid; gap: 8px; margin-top: 12px; padding: 12px 14px; border-radius: 10px; background: var(--surface); }
+  .verdict p { margin: 0; }
+  .verdict .ok { color: var(--ok); font-weight: 700; }
+  .verdict .bad { color: var(--err); font-weight: 700; }
+</style>
+</head>
+<body>
+<main id="stage"></main>
+<script src="../shared/runtime.js"></script>
+<script src="game.js"></script>
+</body>
+</html>

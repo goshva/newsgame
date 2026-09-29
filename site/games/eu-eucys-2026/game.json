@@ -1,0 +1,45 @@
+{
+  "id": "eu-eucys-2026",
+  "langs": ["en"],
+  "title": { "en": "Young scientist memory" },
+  "article": {
+    "publisher": "RTÉ News",
+    "title": { "en": "Irish young scientist wins European award" },
+    "url": "https://www.rte.ie/news/business/2026/0928/1593150-young-scientist/",
+    "date": "2026-09-28"
+  },
+  "demo": "../../demo/eu/",
+  "expires": "2026-11-30",
+  "facts": [
+    { "id": "kiel", "text": { "en": "The closing ceremony of EUCYS 2026 took place in Kiel, Germany." },
+      "quote": "At the closing ceremony, which took place this weekend in Kiel, Germany", "quote_status": "verbatim extract", "source": "https://www.rte.ie/news/business/2026/0928/1593150-young-scientist/" },
+    { "id": "dates", "text": { "en": "The competition ran from 22 to 27 September." },
+      "quote": "The European competition took place from 22 to 27 September", "quote_status": "verbatim extract", "source": "https://www.rte.ie/news/business/2026/0928/1593150-young-scientist/" },
+    { "id": "people", "text": { "en": "More than 140 young scientists showcased their research." },
+      "quote": "more than 140 young scientists from 36 European and international guest teams showcased their research", "quote_status": "verbatim extract", "source": "https://www.rte.ie/news/business/2026/0928/1593150-young-scientist/" },
+    { "id": "teams", "text": { "en": "They came from 36 European and international guest teams." },
+      "quote": "from 36 European and international guest teams", "quote_status": "verbatim extract", "source": "https://www.rte.ie/news/business/2026/0928/1593150-young-scientist/" },
+    { "id": "award", "text": { "en": "Aoibheann Daly received the Special Jury Award for Youth, a core prize awarded directly by the European Commission." },
+      "quote": "Aoibheann received the Special Jury Award for Youth, a core prize that is awarded directly by the European Commission", "quote_status": "verbatim extract", "source": "https://www.rte.ie/news/business/2026/0928/1593150-young-scientist/" },
+    { "id": "isef", "text": { "en": "She was also chosen as a finalist at Regeneron ISEF 2027 in Los Angeles." },
+      "quote": "Aoibheann was also chosen to participate as a finalist at Regeneron ISEF 2027 in Los Angeles, California", "quote_status": "verbatim extract", "source": "https://www.rte.ie/news/business/2026/0928/1593150-young-scientist/" }
+  ],
+  "pairs": [
+    { "fact": "kiel", "a": { "en": "Kiel" }, "b": { "en": "Host city of the closing ceremony" } },
+    { "fact": "dates", "a": { "en": "22–27 September" }, "b": { "en": "When the contest ran" } },
+    { "fact": "people", "a": { "en": "140+" }, "b": { "en": "Young scientists showing their research" } },
+    { "fact": "teams", "a": { "en": "36" }, "b": { "en": "European and international guest teams" } },
+    { "fact": "award", "a": { "en": "Special Jury Award for Youth" }, "b": { "en": "Aoibheann Daly's prize" } },
+    { "fact": "isef", "a": { "en": "Regeneron ISEF 2027" }, "b": { "en": "Where she goes next as a finalist" } }
+  ],
+  "text": {
+    "intro": { "en": "More than 140 young scientists met at the EU Contest for Young Scientists. Turn over two cards at a time and match each fact with what it means. 12 cards, 6 pairs." },
+    "start": { "en": "Start" },
+    "moves": { "en": "Moves" },
+    "pairs": { "en": "Pairs" },
+    "card": { "en": "Hidden card" },
+    "match": { "en": "Match!" },
+    "kicker": { "en": "All pairs found" },
+    "in": { "en": "moves" }
+  }
+}

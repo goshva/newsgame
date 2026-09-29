@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>全国科普月：超过36万场活动，200多万名科技工作者参与 — 新闻演示站</title>
+<link rel="stylesheet" href="../demo.css">
+</head>
+<body>
+<div class="ribbon" lang="ru"><span>Демо интеграции NewsGame. Это макет страницы, а не сайт издания.</span><a href="#integration">Как встроено ↓</a><a href="../../games/">Все игры</a></div>
+<header class="mast"><div class="name">新闻演示站</div><div class="date">2026年9月</div></header>
+<nav class="menu" aria-label="Sections"><span>要闻</span><span>科技</span><span>社会</span><span>教育</span></nav>
+<article>
+  <div class="rubric">科技</div>
+  <h1>全国科普月：超过36万场活动，200多万名科技工作者参与</h1>
+  <div class="byline">演示文章 · 为展示嵌入效果而撰写的摘要</div>
+  <div class="figure" aria-hidden="true">图片</div>
+  <p>据中国科协介绍，今年全国科普月期间，各地共举办超过36万场科普活动，200多万名科学家和工程师参与其中。</p>
+  <p>报告显示，截至2025年底，全国共有1988家科技馆和科学类博物馆；建设重心正向中西部和基层倾斜，其中包括204家乡镇科技馆。</p>
+  <p>去年全国专兼职科普工作者达225万人；2025年，18至69岁公民中具备科学素质的比例为17%。</p>
+  <p class="source">资料来源： <a href="http://europe.chinadaily.com.cn/a/202609/29/WS6abb55fce4b06d4aa0560c96.html" target="_blank" rel="noopener">China Daily</a></p>
+
+  <!-- NewsGame: the only snippet added to the publisher page -->
+  <div class="news-game"
+       data-placement="article-end"
+       data-article-id="cn-science-month"
+       data-lang="zh-CN"></div>
+  <script async src="../../widget/v1.js" data-site="demo-cn"></script>
+  <!-- /NewsGame -->
+</article>
+<aside class="related"><h2>相关阅读</h2><ul><li>科技馆建设向基层延伸</li><li>公民科学素质调查结果</li></ul></aside>
+
+<section class="panel" id="integration" lang="ru" aria-label="Интеграция">
+  <h2>Как игра встроена в эту страницу</h2>
+  <p>В HTML страницы добавлен только этот фрагмент, сразу после текста статьи. Игра загружается по клику в iframe с <code>sandbox="allow-scripts"</code>.</p>
+  <pre><code>&lt;div class="news-game"
+     data-placement="article-end"
+     data-article-id="cn-science-month"
+     data-lang="zh-CN"&gt;&lt;/div&gt;
+&lt;script async src="../../widget/v1.js" data-site="demo-cn"&gt;&lt;/script&gt;</code></pre>
+  <h3>Ссылки</h3>
+  <div class="links">
+    <a href="../../games/cn-science-month/?lang=zh">Открыть игру напрямую</a>
+    <a href="../../games/cn-science-month/game.json">game.json (факты и цитаты)</a>
+    <a href="../../catalog.json">catalog.json</a>
+    <a href="../../widget/v1.js">widget/v1.js</a>
+  </div>
+  <h3>События виджета</h3>
+  <p>Журнал событий, которые loader отправляет странице (<code>newsgame:event</code>). То же выводится в консоль через <code>console.table</code>.</p>
+  <ul class="log" id="ng-log"><li class="empty">Прокрутите до блока игры и нажмите кнопку.</li></ul>
+</section>
+<script src="../panel.js"></script>
+</body>
+</html>

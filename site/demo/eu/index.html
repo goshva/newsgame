@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Irish student wins core prize at EU young scientists contest — Newsroom Demo · Europe</title>
+<link rel="stylesheet" href="../demo.css">
+</head>
+<body>
+<div class="ribbon" lang="ru"><span>Демо интеграции NewsGame. Это макет страницы, а не сайт издания.</span><a href="#integration">Как встроено ↓</a><a href="../../games/">Все игры</a></div>
+<header class="mast"><div class="name">Newsroom Demo · Europe</div><div class="date">28 September 2026</div></header>
+<nav class="menu" aria-label="Sections"><span>Europe</span><span>Science</span><span>Education</span><span>Business</span></nav>
+<article>
+  <div class="rubric">Science</div>
+  <h1>Irish student wins core prize at EU young scientists contest</h1>
+  <div class="byline">Demo article · summary written for the integration demo</div>
+  <div class="figure" aria-hidden="true">Photo</div>
+  <p>Aoibheann Daly, winner of this year's Stripe Young Scientist &amp; Technology Exhibition, has received the Special Jury Award for Youth at the EU Contest for Young Scientists in Kiel, Germany.</p>
+  <p>The contest ran from 22 to 27 September, with more than 140 young scientists from 36 European and international guest teams.</p>
+  <p>Her project uses artificial intelligence to help doctors diagnose and treat brain cancer more quickly. She has also been chosen as a finalist at Regeneron ISEF 2027 in Los Angeles.</p>
+  <p class="source">Based on reporting by <a href="https://www.rte.ie/news/business/2026/0928/1593150-young-scientist/" target="_blank" rel="noopener">RTÉ News</a></p>
+
+  <!-- NewsGame: the only snippet added to the publisher page -->
+  <div class="news-game"
+       data-placement="article-end"
+       data-article-id="eu-eucys-2026"
+       data-lang="en"></div>
+  <script async src="../../widget/v1.js" data-site="demo-eu"></script>
+  <!-- /NewsGame -->
+</article>
+<aside class="related"><h2>More from Science</h2><ul><li>Science Comes to Town: Kiel, Brest and Split</li><li>Earth Prize 2026 winners</li></ul></aside>
+
+<section class="panel" id="integration" lang="ru" aria-label="Интеграция">
+  <h2>Как игра встроена в эту страницу</h2>
+  <p>В HTML страницы добавлен только этот фрагмент, сразу после текста статьи. Игра загружается по клику в iframe с <code>sandbox="allow-scripts"</code>.</p>
+  <pre><code>&lt;div class="news-game"
+     data-placement="article-end"
+     data-article-id="eu-eucys-2026"
+     data-lang="en"&gt;&lt;/div&gt;
+&lt;script async src="../../widget/v1.js" data-site="demo-eu"&gt;&lt;/script&gt;</code></pre>
+  <h3>Ссылки</h3>
+  <div class="links">
+    <a href="../../games/eu-eucys-2026/?lang=en">Открыть игру напрямую</a>
+    <a href="../../games/eu-eucys-2026/game.json">game.json (факты и цитаты)</a>
+    <a href="../../catalog.json">catalog.json</a>
+    <a href="../../widget/v1.js">widget/v1.js</a>
+  </div>
+  <h3>События виджета</h3>
+  <p>Журнал событий, которые loader отправляет странице (<code>newsgame:event</code>). То же выводится в консоль через <code>console.table</code>.</p>
+  <ul class="log" id="ng-log"><li class="empty">Прокрутите до блока игры и нажмите кнопку.</li></ul>
+</section>
+<script src="../panel.js"></script>
+</body>
+</html>

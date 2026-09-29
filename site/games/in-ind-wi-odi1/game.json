@@ -1,0 +1,44 @@
+{
+  "id": "in-ind-wi-odi1",
+  "langs": ["en"],
+  "title": { "en": "Chase 296" },
+  "article": {
+    "publisher": "ESPNcricinfo",
+    "title": { "en": "Kuldeep reels West Indies in, Gill and Kohli tons knock them out" },
+    "url": "https://www.cricinfo.com/series/west-indies-in-india-2026-27-1529215/india-vs-west-indies-1st-odi-1529227/match-report",
+    "date": "2026-09-27"
+  },
+  "demo": "../../demo/in/",
+  "expires": "2026-10-31",
+  "note": "ESPNcricinfo returned 403 to the fetcher: quotes are paraphrases from match coverage. Replace with verbatim quotes from the saved page before publishing.",
+  "facts": [
+    { "id": "wi", "text": { "en": "West Indies made 295 for 7, with a century from Justin Greaves (101)." },
+      "quote": "West Indies posted 295 for seven", "quote_status": "paraphrase, check", "source": "https://www.cricinfo.com/series/west-indies-in-india-2026-27-1529215/india-vs-west-indies-1st-odi-1529227/match-report" },
+    { "id": "result", "text": { "en": "India won by eight wickets with 50 balls to spare." },
+      "quote": "India won by 8 wickets (with 50 balls remaining)", "quote_status": "scorecard line, check", "source": "https://www.cricinfo.com/series/west-indies-in-india-2026-27-1529215/india-vs-west-indies-1st-odi-1529227/live-cricket-score" },
+    { "id": "kohli", "text": { "en": "Virat Kohli made 139 not out off 88 balls; Shubman Gill made 110." },
+      "quote": "Kohli 139* (88), Gill 110", "quote_status": "paraphrase, check", "source": "https://www.cricinfo.com/series/west-indies-in-india-2026-27-1529215/india-vs-west-indies-1st-odi-1529227/match-report" },
+    { "id": "kuldeep", "text": { "en": "Kuldeep Yadav took 4 for 40 and was player of the match." },
+      "quote": "Kuldeep Yadav 4/40, Player of the Match", "quote_status": "paraphrase, check", "source": "https://www.cricinfo.com/series/west-indies-in-india-2026-27-1529215/india-vs-west-indies-1st-odi-1529227/match-report" },
+    { "id": "venue", "text": { "en": "The match was played at the Greenfield International Stadium in Thiruvananthapuram." },
+      "quote": "Greenfield International Stadium, Thiruvananthapuram", "quote_status": "paraphrase, check", "source": "https://www.cricinfo.com/series/west-indies-in-india-2026-27-1529215/india-vs-west-indies-1st-odi-1529227/match-report" }
+  ],
+  "text": {
+    "intro": { "en": "You are India, chasing 296 in 50 overs. Every tap plays a whole over: hit when the ball reaches the bat line. The closer to the line, the more runs. Swing far too early or too late and you lose a wicket." },
+    "controls": { "en": "Tap the pitch, press the button or press Space." },
+    "start": { "en": "Start the chase" },
+    "hit": { "en": "Hit" },
+    "need": { "en": "Need" },
+    "from": { "en": "from" },
+    "overs": { "en": "overs" },
+    "out": { "en": "OUT!" },
+    "maiden": { "en": "Missed — a maiden over" },
+    "runs": { "en": "runs this over" },
+    "won": { "en": "You chased it down!" },
+    "lost": { "en": "West Indies win this time" },
+    "youIn": { "en": "You needed" },
+    "india": { "en": "India needed 41.4 overs in the real match." },
+    "pitch": { "en": "Pitch: the ball travels down towards the bat line." }
+  },
+  "config": { "target": 296, "overs": 50, "wickets": 10 }
+}

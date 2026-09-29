@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Греф: российские ИИ-модели отстают от китайских примерно на полгода — Демо-редакция</title>
+<link rel="stylesheet" href="../demo.css">
+</head>
+<body>
+<div class="ribbon" lang="ru"><span>Демо интеграции NewsGame. Это макет страницы, а не сайт издания.</span><a href="#integration">Как встроено ↓</a><a href="../../games/">Все игры</a></div>
+<header class="mast"><div class="name">Демо-редакция</div><div class="date">Сентябрь 2026</div></header>
+<nav class="menu" aria-label="Sections"><span>Главное</span><span>Экономика</span><span>Технологии</span><span>Бизнес</span></nav>
+<article>
+  <div class="rubric">Технологии</div>
+  <h1>Греф: российские ИИ-модели отстают от китайских примерно на полгода</h1>
+  <div class="byline">Демо-статья · пересказ для демонстрации встраивания</div>
+  <div class="figure" aria-hidden="true">Фото</div>
+  <p>Глава Сбербанка Герман Греф на конференции «ГигаКонф 2026» оценил отставание российских моделей искусственного интеллекта от китайских примерно в полгода. Главной причиной он назвал ограниченный доступ к вычислительным мощностям.</p>
+  <p>По словам Грефа, по остальным параметрам Россия не уступает, а китайские модели, в свою очередь, примерно настолько же отстают от американских.</p>
+  <p>В 2026 году пользователи российских облачных платформ стали чаще выбирать зарубежные языковые модели, в первую очередь китайские Qwen и DeepSeek.</p>
+  <p class="source">По материалам <a href="https://www.kommersant.ru/doc/8973642" target="_blank" rel="noopener">«Коммерсантъ»</a></p>
+
+  <!-- NewsGame: the only snippet added to the publisher page -->
+  <div class="news-game"
+       data-placement="article-end"
+       data-article-id="cis-gref-ai-race"
+       data-lang="ru"></div>
+  <script async src="../../widget/v1.js" data-site="demo-cis"></script>
+  <!-- /NewsGame -->
+</article>
+<aside class="related"><h2>Читайте также</h2><ul><li>Облачные платформы: спрос на открытые модели</li><li>Рынок вычислительных мощностей в 2026 году</li></ul></aside>
+
+<section class="panel" id="integration" lang="ru" aria-label="Интеграция">
+  <h2>Как игра встроена в эту страницу</h2>
+  <p>В HTML страницы добавлен только этот фрагмент, сразу после текста статьи. Игра загружается по клику в iframe с <code>sandbox="allow-scripts"</code>.</p>
+  <pre><code>&lt;div class="news-game"
+     data-placement="article-end"
+     data-article-id="cis-gref-ai-race"
+     data-lang="ru"&gt;&lt;/div&gt;
+&lt;script async src="../../widget/v1.js" data-site="demo-cis"&gt;&lt;/script&gt;</code></pre>
+  <h3>Ссылки</h3>
+  <div class="links">
+    <a href="../../games/cis-gref-ai-race/?lang=ru">Открыть игру напрямую</a>
+    <a href="../../games/cis-gref-ai-race/game.json">game.json (факты и цитаты)</a>
+    <a href="../../catalog.json">catalog.json</a>
+    <a href="../../widget/v1.js">widget/v1.js</a>
+  </div>
+  <h3>События виджета</h3>
+  <p>Журнал событий, которые loader отправляет странице (<code>newsgame:event</code>). То же выводится в консоль через <code>console.table</code>.</p>
+  <ul class="log" id="ng-log"><li class="empty">Прокрутите до блока игры и нажмите кнопку.</li></ul>
+</section>
+<script src="../panel.js"></script>
+</body>
+</html>

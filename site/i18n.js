@@ -1,7 +1,7 @@
 // Interface strings. Keys are shared by all languages; every language must define every key.
 window.I18N = {
   en: {
-    "nav.how": "How it works", "nav.examples": "Examples", "nav.offer": "Offer", "nav.apply": "Apply", "nav.feedback": "Feedback",
+    "nav.how": "How it works", "nav.examples": "Examples", "nav.offer": "Offer", "nav.apply": "Apply", "nav.feedback": "Feedback", "nav.games": "Demo games", "ex.all": "Play the full games and see the integration",
     "hero.eyebrow": "Games for news sites",
     "hero.title": "A short game for every story worth playing",
     "hero.lede": "We turn today's news into one- to three-minute games — quizzes, puzzles, arcade — and place them inside the article. Readers play without leaving the page. Your editors stay in control.",
@@ -60,7 +60,7 @@ window.I18N = {
   },
 
   ru: {
-    "nav.how": "Как это работает", "nav.examples": "Примеры", "nav.offer": "Предложение", "nav.apply": "Заявка", "nav.feedback": "Обратная связь",
+    "nav.how": "Как это работает", "nav.examples": "Примеры", "nav.offer": "Предложение", "nav.apply": "Заявка", "nav.feedback": "Обратная связь", "nav.games": "Демо-игры", "ex.all": "Сыграть в полные игры и посмотреть встраивание",
     "hero.eyebrow": "Игры для новостных сайтов",
     "hero.title": "Короткая игра к каждой новости, в которую хочется сыграть",
     "hero.lede": "Мы превращаем сегодняшние новости в игры на 1–3 минуты — викторины, пазлы, аркады — и встраиваем их прямо в статью. Читатель играет, не уходя со страницы. Редакция сохраняет полный контроль.",
@@ -119,7 +119,7 @@ window.I18N = {
   },
 
   hi: {
-    "nav.how": "यह कैसे काम करता है", "nav.examples": "उदाहरण", "nav.offer": "प्रस्ताव", "nav.apply": "आवेदन", "nav.feedback": "प्रतिक्रिया",
+    "nav.how": "यह कैसे काम करता है", "nav.examples": "उदाहरण", "nav.offer": "प्रस्ताव", "nav.apply": "आवेदन", "nav.feedback": "प्रतिक्रिया", "nav.games": "डेमो गेम", "ex.all": "पूरे गेम खेलें और इंटीग्रेशन देखें",
     "hero.eyebrow": "न्यूज़ वेबसाइटों के लिए गेम",
     "hero.title": "हर उस ख़बर के लिए एक छोटा गेम, जिसे खेलने का मन करे",
     "hero.lede": "हम आज की ख़बरों को एक से तीन मिनट के गेम — क्विज़, पहेली, आर्केड — में बदलते हैं और उन्हें सीधे लेख के अंदर लगाते हैं। पाठक पेज छोड़े बिना खेलते हैं। संपादकीय नियंत्रण आपके पास रहता है।",
@@ -178,7 +178,7 @@ window.I18N = {
   },
 
   zh: {
-    "nav.how": "运作方式", "nav.examples": "示例", "nav.offer": "合作方案", "nav.apply": "申请合作", "nav.feedback": "意见反馈",
+    "nav.how": "运作方式", "nav.examples": "示例", "nav.offer": "合作方案", "nav.apply": "申请合作", "nav.feedback": "意见反馈", "nav.games": "演示游戏", "ex.all": "试玩完整游戏并查看嵌入效果",
     "hero.eyebrow": "新闻网站互动小游戏",
     "hero.title": "为值得一玩的新闻，配一款小游戏",
     "hero.lede": "我们把当天的新闻做成一到三分钟的小游戏——问答、拼图、街机——直接嵌入文章页面。读者无需离开页面即可参与，编辑部始终掌握发布权。",
@@ -237,7 +237,7 @@ window.I18N = {
   },
 
   de: {
-    "nav.how": "So funktioniert es", "nav.examples": "Beispiele", "nav.offer": "Angebot", "nav.apply": "Anfrage", "nav.feedback": "Feedback",
+    "nav.how": "So funktioniert es", "nav.examples": "Beispiele", "nav.offer": "Angebot", "nav.apply": "Anfrage", "nav.feedback": "Feedback", "nav.games": "Demo-Spiele", "ex.all": "Vollständige Spiele spielen und Einbindung ansehen",
     "hero.eyebrow": "Spiele für Nachrichtenseiten",
     "hero.title": "Ein kurzes Spiel zu jeder Meldung, die sich dafür eignet",
     "hero.lede": "Wir machen aus aktuellen Nachrichten Spiele von ein bis drei Minuten – Quiz, Puzzle, Arcade – und binden sie direkt in den Artikel ein. Leserinnen und Leser spielen, ohne die Seite zu verlassen. Ihre Redaktion behält die Kontrolle.",
