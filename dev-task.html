@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ТЗ на пять новостных игр</title>
+<meta name="description" content="Техническое задание на proof of concept: пять HTML5-игр по актуальным новостям пяти регионов и встраивание в локальные копии страниц.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Onest:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: spec sheet — sticky contents rail on the left, one reading column, region cards in a wrapping grid */
+:root{
+  --bg:#f5f6f3; --surface:#ffffff; --fg:#1b2124; --muted:#5b666b; --line:#dde2df;
+  --accent:#0e6b66; --accent-soft:#e2f0ee; --warn:#8a5a00; --warn-soft:#fbf0d9; --code-bg:#eef1ee;
+  --f-display:"Unbounded","Arial Black",system-ui,sans-serif;
+  --f-body:"Onest",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#121719; --surface:#1a2124; --fg:#e4e9e7; --muted:#9aa6a3; --line:#2c3538;
+  --accent:#5cc4bb; --accent-soft:#17312f; --warn:#e8b75a; --warn-soft:#352a14; --code-bg:#20292c; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121719; --surface:#1a2124; --fg:#e4e9e7; --muted:#9aa6a3; --line:#2c3538;
+  --accent:#5cc4bb; --accent-soft:#17312f; --warn:#e8b75a; --warn-soft:#352a14; --code-bg:#20292c; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:16px/1.6 var(--f-body);margin:0}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:20px;padding-block:40px 80px;display:grid;grid-template-columns:220px minmax(0,1fr);gap:56px}
+@media (max-width:900px){.wrap{grid-template-columns:minmax(0,1fr);gap:24px;padding-inline:16px;padding-block:24px 60px}}
+
+nav.toc{position:sticky;top:calc(env(safe-area-inset-top,0px) + 24px);align-self:start;font-size:14px}
+nav.toc p{font:600 11px/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 12px}
+nav.toc ol{list-style:none;margin:0;padding:0;display:grid;gap:2px;counter-reset:t}
+nav.toc a{display:block;padding:5px 10px;border-left:2px solid var(--line);color:var(--muted);text-decoration:none}
+nav.toc a:hover,nav.toc a:focus-visible{color:var(--fg);border-left-color:var(--accent)}
+@media (max-width:900px){nav.toc{position:static}nav.toc ol{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}}
+
+main{min-width:0;max-width:760px}
+header.top{display:grid;gap:14px;padding-bottom:28px;border-bottom:1px solid var(--line);margin-bottom:8px}
+.eyebrow{font:600 12px/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+h1{font:700 clamp(28px,4.4vw,42px)/1.12 var(--f-display);margin:0;text-wrap:balance;letter-spacing:-.01em}
+.lede{font-size:18px;color:var(--muted);margin:0;max-width:62ch}
+.meta{display:flex;flex-wrap:wrap;gap:8px 20px;font:13px/1.4 var(--f-mono);color:var(--muted)}
+.meta b{color:var(--fg);font-weight:600}
+
+section{padding-top:40px;scroll-margin-top:16px}
+h2{font:500 22px/1.25 var(--f-display);margin:0 0 16px;text-wrap:balance;display:flex;gap:12px;align-items:baseline}
+h2 .n{font:600 13px/1 var(--f-mono);color:var(--accent)}
+h3{font:600 17px/1.35 var(--f-body);margin:28px 0 8px}
+p,li{max-width:68ch}
+ul,ol{padding-left:22px;display:grid;gap:6px}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:3px}
+code{font:13.5px/1.5 var(--f-mono);background:var(--code-bg);padding:1px 5px;border-radius:4px;overflow-wrap:anywhere}
+pre{position:relative;background:var(--code-bg);border:1px solid var(--line);border-radius:8px;padding:16px;overflow-x:auto;margin:14px 0}
+pre code{background:none;padding:0;white-space:pre;overflow-wrap:normal}
+.copy{position:absolute;top:8px;right:8px;font:600 11px/1 var(--f-mono);letter-spacing:.04em;text-transform:uppercase;background:var(--surface);color:var(--muted);border:1px solid var(--line);border-radius:5px;padding:6px 8px;cursor:pointer}
+.copy:hover{color:var(--fg)}
+
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:8px;margin:14px 0;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:560px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font:600 11px/1.3 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);background:var(--bg)}
+tr:last-child td{border-bottom:0}
+td code{white-space:nowrap}
+
+.games{display:grid;gap:16px;margin-top:8px}
+.game{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px 22px;display:grid;gap:10px;min-width:0}
+.game-head{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:baseline}
+.region{font:600 11px/1 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;background:var(--accent-soft);color:var(--accent);padding:5px 8px;border-radius:4px}
+.game h3{margin:0;font:500 18px/1.3 var(--f-display)}
+.src{font-size:14px;color:var(--muted)}
+.game dl{display:grid;grid-template-columns:120px minmax(0,1fr);gap:8px 16px;margin:4px 0 0}
+.game dt{font:600 11px/1.9 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.game dd{margin:0}
+@media (max-width:560px){.game dl{grid-template-columns:minmax(0,1fr)}.game dt{margin-top:6px}}
+
+.note{background:var(--warn-soft);color:var(--fg);border-left:3px solid var(--warn);padding:12px 16px;border-radius:0 6px 6px 0;margin:14px 0}
+.note strong{color:var(--warn)}
+.checks{list-style:none;padding:0}
+.checks li{padding-left:28px;position:relative}
+.checks li::before{content:"";position:absolute;left:2px;top:.45em;width:14px;height:14px;border:1.5px solid var(--accent);border-radius:3px}
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:14px;color:var(--muted)}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+<nav class="toc" aria-label="Содержание">
+  <p>Содержание</p>
+  <ol>
+    <li><a href="#task">1. Что сделать</a></li>
+    <li><a href="#news">2. Новости</a></li>
+    <li><a href="#games">3. Игры</a></li>
+    <li><a href="#pages">4. Сохранение и встраивание</a></li>
+    <li><a href="#tech">5. Тех. требования</a></li>
+    <li><a href="#deliver">6. Что сдать</a></li>
+    <li><a href="#accept">7. Приёмка</a></li>
+    <li><a href="#questions">8. Вопросы до старта</a></li>
+  </ol>
+</nav>
+
+<main>
+<header class="top">
+  <span class="eyebrow">NewsGame · Proof of concept · ТЗ для разработчика</span>
+  <h1>Пять игр к новостям пяти регионов</h1>
+  <p class="lede">Сохранить локально пять реальных новостных страниц, сделать к каждой короткую HTML5-игру и встроить её одной вставкой кода. Цель — показать, что игра живёт в изолированном iframe и не ломает сайт издателя.</p>
+  <div class="meta"><span>Дата: <b>29.09.2026</b></span><span>Этап: <b>технический PoC</b></span><span>Регионы: <b>US · СНГ · IN · CN · EU</b></span></div>
+</header>
+
+<section id="task">
+  <h2><span class="n">01</span>Что нужно сделать</h2>
+  <ol>
+    <li>Сохранить локально пять страниц новостей из таблицы ниже.</li>
+    <li>Сделать по каждой новости короткую HTML5-игру на 1–3 минуты.</li>
+    <li>Сделать общий loader-скрипт виджета и встроить его в каждую сохранённую страницу одной вставкой после текста статьи.</li>
+    <li>Поднять локальный стенд, где страницы и игры отдаются с разных origin, и проверить критерии приёмки из раздела 7.</li>
+  </ol>
+</section>
+
+<section id="news">
+  <h2><span class="n">02</span>Выбранные новости</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>Регион</th><th>Площадка</th><th>Новость</th><th>Дата</th><th>Язык</th></tr></thead>
+    <tbody>
+      <tr><td>США</td><td>Space.com</td><td><a href="https://www.space.com/astronomy/exoplanets/scientists-find-youngest-exoplanet-on-record-a-newborn-named-elias">Scientists find youngest exoplanet on record — a 'newborn' named Elias</a></td><td>09.2026</td><td>en</td></tr>
+      <tr><td>СНГ (Россия)</td><td>Коммерсантъ</td><td><a href="https://www.kommersant.ru/doc/8973642">Греф назвал причину отставания российских ИИ-моделей от китайских</a></td><td>23.09.2026</td><td>ru</td></tr>
+      <tr><td>Индия</td><td>ESPNcricinfo</td><td><a href="https://www.cricinfo.com/series/west-indies-in-india-2026-27-1529215/india-vs-west-indies-1st-odi-1529227/match-report">Kuldeep reels West Indies in, Gill and Kohli tons knock them out</a></td><td>27.09.2026</td><td>en</td></tr>
+      <tr><td>Китай</td><td>China Daily</td><td><a href="http://europe.chinadaily.com.cn/a/202609/29/WS6abb55fce4b06d4aa0560c96.html">China's science month draws billions with theme of innovation</a></td><td>29.09.2026</td><td>zh-CN + en</td></tr>
+      <tr><td>Европа</td><td>RTÉ News</td><td><a href="https://www.rte.ie/news/business/2026/0928/1593150-young-scientist/">Irish young scientist wins European award</a></td><td>28.09.2026</td><td>en</td></tr>
+    </tbody>
+  </table></div>
+  <p>Критерии выбора: новость не старше недели, без трагедий, медицины как предмета игры, выборов и конфликтов; в тексте есть конкретные факты и цифры для игровой механики.</p>
+  <p>Если страница недоступна, закрыта paywall или не сохраняется корректно, возьмите другую новость на той же площадке по тем же критериям и согласуйте замену до начала работы над игрой.</p>
+</section>
+
+<section id="games">
+  <h2><span class="n">03</span>Игры</h2>
+  <div class="note"><strong>Сверка фактов.</strong> Каждый факт, который использует игра, лежит в <code>game.json</code> с цитатой и ссылкой на статью. Факты ниже собраны по публикациям. Перед вёрсткой сверьте каждую цифру с сохранённой страницей; при расхождении прав текст статьи.</div>
+  <div class="games">
+    <article class="game">
+      <div class="game-head"><span class="region">us</span><h3>Рождение планеты</h3><span class="src">Space.com</span></div>
+      <dl>
+        <dt>Механика</dt><dd>Аркада на одной кнопке или касании. Молодая планета внутри протопланетного диска собирает газ и пыль и уворачивается от выбросов звезды. Цель — набрать массу Юпитера за 60 секунд.</dd>
+        <dt>Факты</dt><dd>Elias 2-24 b моложе 1 млн лет; около 450 световых лет от Земли; масса сопоставима с Юпитером; прежним рекордсменам больше 5 млн лет; примерно в 5000 раз моложе Земли.</dd>
+        <dt>Финал</dt><dd>Счёт, одна строка «что вы узнали», кнопка «Вернуться к статье».</dd>
+      </dl>
+    </article>
+    <article class="game">
+      <div class="game-head"><span class="region">cis</span><h3>ИИ-гонка: верю / не верю</h3><span class="src">Коммерсантъ</span></div>
+      <dl>
+        <dt>Механика</dt><dd>6–8 карточек с утверждениями. Свайп влево или вправо (на desktop — стрелки или кнопки): верно ли утверждение по статье. После ответа — короткое пояснение с цитатой.</dd>
+        <dt>Факты</dt><dd>По оценке Германа Грефа («ГигаКонф 2026») российские ИИ-модели отстают от китайских примерно на полгода; главная причина — доступ к вычислительным мощностям; китайские модели, по его словам, настолько же отстают от американских; в 2026 году пользователи облачных платформ чаще выбирали Qwen и DeepSeek.</dd>
+        <dt>Тон</dt><dd>Нейтральный, только технологии. Без политических оценок; формулировки «по словам Грефа», а не как установленный факт.</dd>
+      </dl>
+    </article>
+    <article class="game">
+      <div class="game-head"><span class="region">in</span><h3>Догони 296</h3><span class="src">ESPNcricinfo</span></div>
+      <dl>
+        <dt>Механика</dt><dd>Отбивание мяча по таймингу: от точности зависит 0, 1, 2, 4, 6 ранов или аут. Набрать 296 за ограниченное число мячей при 10 калитках. Партия — 2–3 минуты.</dd>
+        <dt>Факты</dt><dd>Вест-Индия — 295/7, Джастин Гривз — 101; Индия выиграла с разницей 8 калиток за 50 мячей до конца; Кохли — 139* (88 мячей), Гилл — 110; игрок матча — Кульдип Ядав (4/40); стадион Greenfield, Тируванантапурам.</dd>
+        <dt>Ограничение</dt><dd>Недорогие Android-телефоны и медленная сеть: начальная загрузка не больше 250 KB gzip.</dd>
+      </dl>
+    </article>
+    <article class="game">
+      <div class="game-head"><span class="region">cn</span><h3>Угадай число · 猜数字</h3><span class="src">China Daily</span></div>
+      <dl>
+        <dt>Механика</dt><dd>Факт с пропущенным числом, игрок двигает ползунок, очки за близость к ответу. 6–8 раундов.</dd>
+        <dt>Факты</dt><dd>Около 360 000 научно-популярных мероприятий; 2 млн учёных и инженеров; 1 988 научных музеев на конец 2025 года; 204 музея на уровне волостей; 2,25 млн популяризаторов науки; 17 % граждан 18–69 лет с научной грамотностью (2025).</dd>
+        <dt>Внимание</dt><dd>Цифру «10 billion» посещений не использовать, пока не проверена точная формулировка в оригинале.</dd>
+        <dt>Локализация</dt><dd>Основной язык zh-CN, дополнительный en. Никаких запросов к Google Fonts, Google CDN и другим западным сервисам. Шрифты системные: <code>"PingFang SC", "Microsoft YaHei", sans-serif</code>.</dd>
+      </dl>
+    </article>
+    <article class="game">
+      <div class="game-head"><span class="region">eu</span><h3>Юный учёный: собери проект</h3><span class="src">RTÉ News</span></div>
+      <dl>
+        <dt>Механика</dt><dd>Memory на 12 карт: пары «область науки ↔ проект или факт о EUCYS». После сбора всех пар — карточка итогов.</dd>
+        <dt>Факты</dt><dd>EUCYS 2026 прошёл 22–27 сентября в Киле; больше 140 участников; Аойвинн Дейли (Ирландия) получила Special Jury Award for Youth за проект с ИИ для диагностики опухолей мозга; вышла в финал Regeneron ISEF 2027.</dd>
+        <dt>Тон</dt><dd>Игра про конкурс и науку, без медицинских утверждений сверх статьи.</dd>
+        <dt>Приватность</dt><dd>По умолчанию без cookies и localStorage (GDPR/ePrivacy).</dd>
+      </dl>
+    </article>
+  </div>
+</section>
+
+<section id="pages">
+  <h2><span class="n">04</span>Сохранение и встраивание</h2>
+  <h3>Сохранение страницы</h3>
+  <ol>
+    <li>Откройте новость в Chrome или Firefox. Закройте cookie-баннер, не принимая рекламные cookies.</li>
+    <li>Сохраните страницу одним HTML-файлом через расширение <b>SingleFile</b>. Если вёрстка ломается, используйте «Сохранить как → Веб-страница полностью». Для статичных страниц подойдёт wget:
+<pre><code>wget -E -H -k -K -p -e robots=off &lt;url&gt;</code></pre></li>
+    <li>Положите результат в <code>pages/&lt;region&gt;/index.html</code>, где region — <code>us</code>, <code>cis</code>, <code>in</code>, <code>cn</code> или <code>eu</code>.</li>
+    <li>Удалите рекламные, аналитические и трекинговые скрипты (GTM, рекламные SDK, пиксели), чтобы стенд не слал события на реальные сайты. Вёрстку и стили оставьте. Список удалённого запишите в <code>pages/&lt;region&gt;/NOTES.md</code>.</li>
+    <li>Добавьте в <code>&lt;head&gt;</code> строку <code>&lt;meta name="robots" content="noindex"&gt;</code>.</li>
+    <li>Сделайте скриншот исходной страницы: <code>pages/&lt;region&gt;/before.png</code>.</li>
+  </ol>
+  <div class="note"><strong>Только для внутреннего демо.</strong> Права на контент страниц принадлежат изданиям. Локальные копии не публикуйте и не кладите в открытый репозиторий.</div>
+
+  <h3>Встраивание</h3>
+  <p>Сразу после последнего абзаца статьи, до комментариев и рекомендаций, вставьте <b>только</b> этот фрагмент:</p>
+<pre><code>&lt;div class="news-game"
+     data-placement="article-end"
+     data-article-id="us-elias-2-24b"
+     data-lang="en"&gt;&lt;/div&gt;
+&lt;script async src="http://localhost:8081/widget/v1.js" data-site="demo-us"&gt;&lt;/script&gt;</code></pre>
+  <div class="tbl"><table>
+    <thead><tr><th>Регион</th><th>data-article-id</th><th>data-lang</th><th>data-site</th></tr></thead>
+    <tbody>
+      <tr><td>us</td><td><code>us-elias-2-24b</code></td><td><code>en</code></td><td><code>demo-us</code></td></tr>
+      <tr><td>cis</td><td><code>cis-gref-ai-race</code></td><td><code>ru</code></td><td><code>demo-cis</code></td></tr>
+      <tr><td>in</td><td><code>in-ind-wi-odi1</code></td><td><code>en</code></td><td><code>demo-in</code></td></tr>
+      <tr><td>cn</td><td><code>cn-science-month</code></td><td><code>zh-CN</code></td><td><code>demo-cn</code></td></tr>
+      <tr><td>eu</td><td><code>eu-eucys-2026</code></td><td><code>en</code></td><td><code>demo-eu</code></td></tr>
+    </tbody>
+  </table></div>
+  <p>Других правок в HTML страницы для работы виджета быть не должно: так мы проверяем тезис «одна вставка, без изменений CMS».</p>
+</section>
+
+<section id="tech">
+  <h2><span class="n">05</span>Технические требования</h2>
+  <h3>Структура репозитория</h3>
+<pre><code>pages/&lt;region&gt;/index.html   копии страниц        (origin A: localhost:8080)
+widget/v1.js                loader               (origin B: localhost:8081)
+games/&lt;article-id&gt;/         игры                 (origin B: localhost:8081)
+  index.html
+  game.json                 контент и факты с источниками
+  assets/
+catalog.json                article-id → игра, язык, срок актуальности, enabled</code></pre>
+  <p>Страницы и игры отдаются с <b>разных origin</b>, чтобы изоляция iframe проверялась по-настоящему. Оба сервера поднимаются одной командой (<code>npm run dev</code> или аналог).</p>
+
+  <h3>Loader — widget/v1.js</h3>
+  <ul>
+    <li>Vanilla JS без зависимостей, не больше 30 KB gzip (цель — меньше 10 KB). Подключается с <code>async</code> и не блокирует рендер.</li>
+    <li>Находит все <code>.news-game</code>, читает data-атрибуты и запрашивает <code>catalog.json</code>. Если игры нет, она просрочена или выключена, контейнер остаётся скрытым без сдвига вёрстки.</li>
+    <li>Показывает компактный тизер «Сыграть по теме» на языке <code>data-lang</code>, когда блок подходит к области просмотра (IntersectionObserver). Iframe создаётся <b>только по клику</b>.</li>
+    <li>Iframe: <code>sandbox="allow-scripts"</code> без <code>allow-same-origin</code>, <code>allow-top-navigation</code> и <code>allow-popups</code>; <code>loading="lazy"</code>, <code>referrerpolicy="no-referrer"</code>, <code>title</code>. Каждое дополнительное разрешение обосновать в README.</li>
+    <li>Высота iframe меняется по сообщению <code>resize</code>, максимум 90vh; ширина — 100 % контейнера.</li>
+    <li>Стили изолированы через Shadow DOM или префикс. Loader не трогает глобальные стили, <code>window</code>, историю и URL, не перехватывает скролл.</li>
+    <li>При ошибке сети, таймауте 5 с или сообщении <code>error</code> блок сворачивается, в консоль пишется одно предупреждение, других эффектов нет.</li>
+    <li>Kill switch: <code>enabled: false</code> у игры или сайта в <code>catalog.json</code> скрывает блок.</li>
+  </ul>
+
+  <h3>Протокол postMessage v1</h3>
+<pre><code>{ ns: "newsgame", v: 1,
+  type: "ready" | "resize" | "start" | "complete" | "error" | "exit",
+  gameId: "us-elias-2-24b",
+  sessionId: "&lt;случайный uuid на запуск&gt;",
+  payload: {} }</code></pre>
+  <ul>
+    <li>Loader принимает сообщения только от origin игр и только от своего <code>iframe.contentWindow</code>; неизвестные <code>ns</code>, <code>v</code> и <code>type</code> игнорирует.</li>
+    <li>Игра шлёт сообщения только в <code>parent</code> с явным <code>targetOrigin</code>, который получает параметром URL и сверяет с allowlist. От страницы принимает только <code>pause</code> и <code>resume</code>.</li>
+    <li>События (запрос конфигурации, видимость, запуск, завершение, результат, ошибка, выход) loader выводит в <code>console.table</code> и отправляет на <code>POST localhost:8081/events</code> (можно писать в JSON-файл). Ответы пользователя и персональные данные не собираются. Флаг <code>preview=1</code> помечает события как тестовые.</li>
+  </ul>
+
+  <h3>Игры</h3>
+  <ul>
+    <li>HTML5 + vanilla JS/TS, при необходимости Canvas. Тяжёлые движки — только по согласованию и в рамках бюджета.</li>
+    <li>Начальная загрузка не больше 500 KB gzip (Индия — не больше 250 KB). Внешних запросов нет, все ресурсы локальные.</li>
+    <li>Тексты и факты берутся из <code>game.json</code>, в код не прописываются:
+<pre><code>{ "id": "...", "text": "...",
+  "quote": "&lt;дословная цитата из статьи&gt;",
+  "source": "&lt;URL статьи&gt;" }</code></pre></li>
+    <li>Адаптивность от 320 px до desktop; управление касанием, мышью и клавиатурой.</li>
+    <li>Видимый focus, <code>aria-label</code>, контраст WCAG AA, масштабирование текста до 200 %, <code>prefers-reduced-motion</code>; звук выключен по умолчанию, игра работает без звука.</li>
+    <li>Пауза, перезапуск и всегда видимая кнопка «Вернуться к статье», которая отправляет <code>exit</code>.</li>
+    <li>Без регистрации, cookies, localStorage и персональных данных. Игра работает, даже если storage недоступен.</li>
+    <li>Отдельные экраны загрузки и ошибки; ошибка отправляет <code>error</code>.</li>
+  </ul>
+
+  <h3>Браузеры</h3>
+  <p>Последние стабильные Chrome, Safari (iOS и macOS), Firefox, Edge, Chrome на Android. Для Китая дополнительно WeChat in-app browser или эмуляция мобильного Chrome с заблокированными Google-доменами.</p>
+</section>
+
+<section id="deliver">
+  <h2><span class="n">06</span>Что сдать</h2>
+  <ol>
+    <li>Репозиторий по структуре выше и README: запуск, что удалено со страниц, обоснование <code>sandbox</code>/<code>allow</code>, известные ограничения.</li>
+    <li>Пять локальных страниц со встроенным виджетом и пять игр.</li>
+    <li>Скриншоты <code>before.png</code> и <code>after.png</code> для каждой страницы (desktop и mobile) и короткое видео прохождения каждой игры.</li>
+    <li>Отчёт Lighthouse (mobile) по каждой странице до и после вставки виджета: LCP, CLS, TBT.</li>
+    <li>Таблица сверки фактов: факт → цитата → ссылка → статус «проверено».</li>
+  </ol>
+</section>
+
+<section id="accept">
+  <h2><span class="n">07</span>Критерии приёмки</h2>
+  <ul class="checks">
+    <li>В HTML каждой страницы добавлен только фрагмент из раздела 4, других правок для работы виджета нет.</li>
+    <li>Если остановить сервер <code>:8081</code>, страницы открываются без ошибок в вёрстке, а блок игры не виден.</li>
+    <li>Если выставить <code>enabled: false</code> в <code>catalog.json</code>, блок исчезает без правки страниц.</li>
+    <li>Игра загружается только после клика, в iframe с другого origin; из игры нет доступа к <code>parent.document</code>.</li>
+    <li>CLS страницы после вставки вырос не больше чем на 0,01; loader не даёт long task дольше 50 мс.</li>
+    <li>Каждая игра проходится за 1–3 минуты на телефоне и на desktop, работает с клавиатуры, без звука и при <code>prefers-reduced-motion</code>.</li>
+    <li>Все события из протокола видны в логе с <code>sessionId</code> и <code>gameId</code>; персональные данные не собираются.</li>
+    <li>Все факты в играх совпадают с текстом статей; у каждого есть цитата и ссылка.</li>
+    <li>Игра для Китая не делает ни одного запроса за пределы <code>localhost</code>.</li>
+  </ul>
+</section>
+
+<section id="questions">
+  <h2><span class="n">08</span>Вопросы до старта</h2>
+  <p>Пришлите ответы до начала работы:</p>
+  <ul>
+    <li>Оценка сроков по каждой игре и по loader отдельно.</li>
+    <li>Нужна ли русская локализация интерфейса игр для внутреннего показа (контент игр — на языке статьи).</li>
+    <li>Какие ограничения нашлись при сохранении конкретных страниц: paywall, SPA-вёрстка, ленивые изображения.</li>
+  </ul>
+</section>
+
+<footer>Основание: бизнес-концепция и требования NewsGame. Новости выбраны 29.09.2026; ссылки ведут на оригинальные публикации изданий.</footer>
+</main>
+</div>
+
+<script>
+document.querySelectorAll("pre").forEach(function(pre){
+  var b=document.createElement("button");
+  b.type="button";b.className="copy";b.textContent="Копировать";
+  b.addEventListener("click",function(){
+    var text=pre.querySelector("code").innerText;
+    function done(){b.textContent="Скопировано";setTimeout(function(){b.textContent="Копировать"},1500)}
+    function fallback(){var r=document.createRange();r.selectNodeContents(pre.querySelector("code"));var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent="Выделено"}
+    try{navigator.clipboard.writeText(text).then(done,fallback)}catch(e){fallback()}
+  });
+  pre.appendChild(b);
+});
+</script>
+</body>
+</html>
