@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en" data-game="us-elias-2-24b">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Grow a newborn planet</title>
+<link rel="stylesheet" href="../shared/game.css">
+<style>
+  .field { position: relative; }
+  canvas { display: block; width: 100%; border-radius: 12px; background: #070a18; touch-action: none; cursor: pointer; }
+  .hud { display: flex; justify-content: space-between; gap: 12px; font-size: 14px; font-weight: 600; margin-bottom: 8px; font-variant-numeric: tabular-nums; }
+  .bar { flex: 1; height: 10px; background: var(--surface); border-radius: 5px; overflow: hidden; align-self: center; }
+  .bar i { display: block; height: 100%; width: 0; background: var(--pop); }
+  .holdbtn { width: 100%; margin-top: 10px; user-select: none; -webkit-user-select: none; touch-action: none; }
+</style>
+</head>
+<body>
+<main id="stage"></main>
+<script src="../shared/runtime.js"></script>
+<script src="game.js"></script>
+</body>
+</html>

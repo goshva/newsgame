@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Kohli and Gill hundreds take India past 296 — Newsroom Demo · India</title>
+<link rel="stylesheet" href="../demo.css">
+</head>
+<body>
+<div class="ribbon" lang="ru"><span>Демо интеграции NewsGame. Это макет страницы, а не сайт издания.</span><a href="#integration">Как встроено ↓</a><a href="../../games/">Все игры</a></div>
+<header class="mast"><div class="name">Newsroom Demo · India</div><div class="date">27 September 2026</div></header>
+<nav class="menu" aria-label="Sections"><span>Cricket</span><span>India</span><span>Business</span><span>Tech</span></nav>
+<article>
+  <div class="rubric">Cricket</div>
+  <h1>Kohli and Gill hundreds take India past 296</h1>
+  <div class="byline">Demo article · summary written for the integration demo</div>
+  <div class="figure" aria-hidden="true">Photo</div>
+  <p>India beat West Indies by eight wickets in the first ODI in Thiruvananthapuram, chasing 296 with 50 balls to spare.</p>
+  <p>West Indies made 295 for 7 after a 135-run opening stand: Justin Greaves scored 101 and John Campbell 62. Kuldeep Yadav took 4 for 40 and was named player of the match.</p>
+  <p>Virat Kohli finished unbeaten on 139 off 88 balls, and captain Shubman Gill made 110.</p>
+  <p class="source">Based on reporting by <a href="https://www.cricinfo.com/series/west-indies-in-india-2026-27-1529215/india-vs-west-indies-1st-odi-1529227/match-report" target="_blank" rel="noopener">ESPNcricinfo</a></p>
+
+  <!-- NewsGame: the only snippet added to the publisher page -->
+  <div class="news-game"
+       data-placement="article-end"
+       data-article-id="in-ind-wi-odi1"
+       data-lang="en"></div>
+  <script async src="../../widget/v1.js" data-site="demo-in"></script>
+  <!-- /NewsGame -->
+</article>
+<aside class="related"><h2>More cricket</h2><ul><li>Second ODI preview</li><li>Australia A tour: squad news</li></ul></aside>
+
+<section class="panel" id="integration" lang="ru" aria-label="Интеграция">
+  <h2>Как игра встроена в эту страницу</h2>
+  <p>В HTML страницы добавлен только этот фрагмент, сразу после текста статьи. Игра загружается по клику в iframe с <code>sandbox="allow-scripts"</code>.</p>
+  <pre><code>&lt;div class="news-game"
+     data-placement="article-end"
+     data-article-id="in-ind-wi-odi1"
+     data-lang="en"&gt;&lt;/div&gt;
+&lt;script async src="../../widget/v1.js" data-site="demo-in"&gt;&lt;/script&gt;</code></pre>
+  <h3>Ссылки</h3>
+  <div class="links">
+    <a href="../../games/in-ind-wi-odi1/?lang=en">Открыть игру напрямую</a>
+    <a href="../../games/in-ind-wi-odi1/game.json">game.json (факты и цитаты)</a>
+    <a href="../../catalog.json">catalog.json</a>
+    <a href="../../widget/v1.js">widget/v1.js</a>
+  </div>
+  <h3>События виджета</h3>
+  <p>Журнал событий, которые loader отправляет странице (<code>newsgame:event</code>). То же выводится в консоль через <code>console.table</code>.</p>
+  <ul class="log" id="ng-log"><li class="empty">Прокрутите до блока игры и нажмите кнопку.</li></ul>
+</section>
+<script src="../panel.js"></script>
+</body>
+</html>

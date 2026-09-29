@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "sites": {
+    "demo-us": { "enabled": true },
+    "demo-cis": { "enabled": true },
+    "demo-in": { "enabled": true },
+    "demo-cn": { "enabled": true },
+    "demo-eu": { "enabled": true }
+  },
+  "games": {
+    "us-elias-2-24b": {
+      "enabled": true, "path": "games/us-elias-2-24b/", "expires": "2026-12-31", "minutes": 1,
+      "teaser": {
+        "en": { "label": "Play the story", "title": "Grow a newborn planet", "text": "Elias 2-24 b is less than a million years old. Can you help it reach the mass of Jupiter?", "cta": "Play · 1 min", "note": "No sign-up · sound off" }
+      }
+    },
+    "cis-gref-ai-race": {
+      "enabled": true, "path": "games/cis-gref-ai-race/", "expires": "2026-11-30", "minutes": 1,
+      "teaser": {
+        "ru": { "label": "Игра по теме", "title": "ИИ-гонка: верю / не верю", "text": "Отличите факты из статьи от выдумки за одну минуту.", "cta": "Играть · 1 мин", "note": "Без регистрации · без звука" }
+      }
+    },
+    "in-ind-wi-odi1": {
+      "enabled": true, "path": "games/in-ind-wi-odi1/", "expires": "2026-10-31", "minutes": 2,
+      "teaser": {
+        "en": { "label": "Play the story", "title": "Chase 296", "text": "West Indies set 296. Kohli and Gill chased it down with 50 balls to spare. Can you?", "cta": "Play · 2 min", "note": "No sign-up · sound off" },
+        "hi": { "label": "ख़बर पर खेल", "title": "296 का पीछा करो", "text": "वेस्टइंडीज़ ने 296 का लक्ष्य दिया। क्या आप हासिल कर पाएँगे?", "cta": "खेलें · 2 मिनट", "note": "बिना साइन-अप · आवाज़ बंद" }
+      }
+    },
+    "cn-science-month": {
+      "enabled": true, "path": "games/cn-science-month/", "expires": "2026-11-30", "minutes": 2,
+      "teaser": {
+        "zh": { "label": "新闻小游戏", "title": "猜数字：全国科普月", "text": "今年科普月举办了多少场活动？全国有多少家科技馆？来猜一猜。", "cta": "开始 · 2 分钟", "note": "无需注册 · 无声音" },
+        "en": { "label": "Play the story", "title": "Guess the number: China's science month", "text": "How many science activities? How many museums? Guess the numbers from the story.", "cta": "Play · 2 min", "note": "No sign-up · sound off" }
+      }
+    },
+    "eu-eucys-2026": {
+      "enabled": true, "path": "games/eu-eucys-2026/", "expires": "2026-11-30", "minutes": 1,
+      "teaser": {
+        "en": { "label": "Play the story", "title": "Young scientist memory", "text": "Over 140 young scientists met at EUCYS 2026. How well do you know the facts?", "cta": "Play · 1 min", "note": "No sign-up · no cookies" }
+      }
+    }
+  }
+}

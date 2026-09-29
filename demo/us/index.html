@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Astronomers find the youngest planet yet: Elias 2-24 b — Newsroom Demo</title>
+<link rel="stylesheet" href="../demo.css">
+</head>
+<body>
+<div class="ribbon" lang="ru"><span>Демо интеграции NewsGame. Это макет страницы, а не сайт издания.</span><a href="#integration">Как встроено ↓</a><a href="../../games/">Все игры</a></div>
+<header class="mast"><div class="name">Newsroom Demo</div><div class="date">September 2026</div></header>
+<nav class="menu" aria-label="Sections"><span>World</span><span>Science</span><span>Space</span><span>Tech</span></nav>
+<article>
+  <div class="rubric">Space</div>
+  <h1>Astronomers find the youngest planet yet: Elias 2-24 b</h1>
+  <div class="byline">Demo article · summary written for the integration demo</div>
+  <div class="figure" aria-hidden="true">Illustration</div>
+  <p>Astronomers have confirmed a planet that is less than a million years old, the youngest known so far. Elias 2-24 b orbits a young star about 450 light-years from Earth and is still gathering gas from the disk around it.</p>
+  <p>The planet is about as massive as Jupiter. The previous record holders — two planets around PDS 70 and two around WISPIT 2 — are all more than 5 million years old.</p>
+  <p>The find gives astronomers a rare chance to watch a planet while it is still forming.</p>
+  <p class="source">Based on reporting by <a href="https://www.space.com/astronomy/exoplanets/scientists-find-youngest-exoplanet-on-record-a-newborn-named-elias" target="_blank" rel="noopener">Space.com</a>, <a href="https://science.nasa.gov/universe/newfound-baby-planet-smashes-record-for-youngest-known-world/" target="_blank" rel="noopener">NASA Science</a></p>
+
+  <!-- NewsGame: the only snippet added to the publisher page -->
+  <div class="news-game"
+       data-placement="article-end"
+       data-article-id="us-elias-2-24b"
+       data-lang="en"></div>
+  <script async src="../../widget/v1.js" data-site="demo-us"></script>
+  <!-- /NewsGame -->
+</article>
+<aside class="related"><h2>More from Space</h2><ul><li>Crew-13 launch delayed after Dragon leak</li><li>Roman telescope may have fuel for 22 years</li></ul></aside>
+
+<section class="panel" id="integration" lang="ru" aria-label="Интеграция">
+  <h2>Как игра встроена в эту страницу</h2>
+  <p>В HTML страницы добавлен только этот фрагмент, сразу после текста статьи. Игра загружается по клику в iframe с <code>sandbox="allow-scripts"</code>.</p>
+  <pre><code>&lt;div class="news-game"
+     data-placement="article-end"
+     data-article-id="us-elias-2-24b"
+     data-lang="en"&gt;&lt;/div&gt;
+&lt;script async src="../../widget/v1.js" data-site="demo-us"&gt;&lt;/script&gt;</code></pre>
+  <h3>Ссылки</h3>
+  <div class="links">
+    <a href="../../games/us-elias-2-24b/?lang=en">Открыть игру напрямую</a>
+    <a href="../../games/us-elias-2-24b/game.json">game.json (факты и цитаты)</a>
+    <a href="../../catalog.json">catalog.json</a>
+    <a href="../../widget/v1.js">widget/v1.js</a>
+  </div>
+  <h3>События виджета</h3>
+  <p>Журнал событий, которые loader отправляет странице (<code>newsgame:event</code>). То же выводится в консоль через <code>console.table</code>.</p>
+  <ul class="log" id="ng-log"><li class="empty">Прокрутите до блока игры и нажмите кнопку.</li></ul>
+</section>
+<script src="../panel.js"></script>
+</body>
+</html>

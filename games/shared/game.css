@@ -1,0 +1,48 @@
+/* Shared look of all games: neutral so it sits inside any publisher's page. System fonts only, no external requests. */
+:root {
+  --bg: #ffffff; --surface: #f3f4f8; --ink: #14182b; --muted: #596078; --line: #dde0ea;
+  --accent: #2f4de0; --accent-ink: #ffffff; --pop: #ffcc33; --ok: #1d7a4a; --err: #b3261e;
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #14172a; --surface: #1d2238; --ink: #e8eaf3; --muted: #a2a8c0; --line: #2d3450;
+          --accent: #8ea0ff; --accent-ink: #0f1220; --pop: #ffd45c; --ok: #6fd39c; --err: #ff8a80; color-scheme: dark; }
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.5 var(--font); }
+body { padding: 12px 14px 16px; }
+button { font: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
+
+.ng-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 12px; padding-bottom: 10px; margin-bottom: 12px; border-bottom: 1px solid var(--line); }
+.ng-title { font-size: 18px; line-height: 1.25; margin: 0; }
+.ng-tools { display: flex; flex-wrap: wrap; gap: 6px; }
+.ng-btn { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); cursor: pointer; font-weight: 600; }
+.ng-btn:hover { border-color: var(--ink); }
+.ng-btn[disabled] { opacity: .5; cursor: default; }
+.ng-small { min-height: 36px; padding: 0 12px; font-size: 14px; }
+.ng-main { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.ng-back { border-color: var(--ink); }
+
+.ng-state { padding: 40px 0; text-align: center; color: var(--muted); }
+.ng-error { display: grid; gap: 14px; justify-items: center; color: var(--err); }
+
+.ng-intro { display: grid; gap: 12px; }
+.ng-intro p { margin: 0; }
+.ng-muted { color: var(--muted); }
+.ng-toast { min-height: 3em; margin: 8px 0 0; padding: 8px 12px; border-left: 4px solid var(--pop); background: var(--surface); border-radius: 0 8px 8px 0; font-size: 15px; }
+.ng-toast:empty { visibility: hidden; }
+
+.ng-final { display: grid; gap: 12px; }
+.ng-final p { margin: 0; }
+.ng-kicker { color: var(--muted); font-weight: 600; }
+.ng-score { font-size: 40px; font-weight: 800; line-height: 1.1; }
+.ng-note { color: var(--muted); }
+.ng-learned { background: var(--surface); padding: 12px 14px; border-radius: 10px; display: grid; gap: 4px; }
+.ng-src { font-size: 14px; color: var(--muted); }
+.ng-src a { color: var(--accent); }
+.ng-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }

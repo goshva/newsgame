@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en" data-game="eu-eucys-2026">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Young scientist memory</title>
+<link rel="stylesheet" href="../shared/game.css">
+<style>
+  .stats { display: flex; gap: 18px; font-size: 14px; font-weight: 600; color: var(--muted); margin-bottom: 10px; font-variant-numeric: tabular-nums; }
+  .grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+  @media (max-width: 420px) { .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  .mc { min-height: 92px; padding: 8px; border-radius: 10px; border: 1px solid var(--line); background: var(--accent); color: var(--accent-ink);
+        font: 600 14px/1.25 inherit; font-family: inherit; cursor: pointer; display: flex; align-items: center; justify-content: center; text-align: center; overflow-wrap: anywhere; transition: transform .2s ease; }
+  .mc .back { width: 22px; height: 22px; background: var(--pop); clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%); }
+  .mc.open { background: var(--surface); color: var(--ink); transform: rotateY(0); }
+  .mc.kind-a.open { font-size: 16px; font-weight: 800; }
+  .mc.done { background: color-mix(in srgb, var(--ok) 16%, var(--surface)); border-color: var(--ok); color: var(--ink); cursor: default; }
+</style>
+</head>
+<body>
+<main id="stage"></main>
+<script src="../shared/runtime.js"></script>
+<script src="game.js"></script>
+</body>
+</html>

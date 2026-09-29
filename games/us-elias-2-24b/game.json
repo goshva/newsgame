@@ -1,0 +1,44 @@
+{
+  "id": "us-elias-2-24b",
+  "langs": ["en"],
+  "title": { "en": "Grow a newborn planet" },
+  "article": {
+    "publisher": "Space.com",
+    "title": { "en": "Scientists find youngest exoplanet on record — a 'newborn' named Elias" },
+    "url": "https://www.space.com/astronomy/exoplanets/scientists-find-youngest-exoplanet-on-record-a-newborn-named-elias",
+    "date": "2026-09"
+  },
+  "demo": "../../demo/us/",
+  "expires": "2026-12-31",
+  "facts": [
+    { "id": "age", "text": { "en": "Elias 2-24 b is less than a million years old — the youngest planet ever found." },
+      "quote": "less than a million years old",
+      "quote_status": "extract from NASA Science release; check against the Space.com page",
+      "source": "https://science.nasa.gov/universe/newfound-baby-planet-smashes-record-for-youngest-known-world/" },
+    { "id": "distance", "text": { "en": "It lies about 450 light-years from Earth." },
+      "quote": "about 450 light-years from Earth",
+      "quote_status": "extract from NASA Science release; check against the Space.com page",
+      "source": "https://science.nasa.gov/universe/newfound-baby-planet-smashes-record-for-youngest-known-world/" },
+    { "id": "mass", "text": { "en": "It is about as massive as Jupiter and is still pulling in gas from its disk." },
+      "quote": "about as massive as Jupiter",
+      "quote_status": "extract from NASA Science release; check against the Space.com page",
+      "source": "https://science.nasa.gov/universe/newfound-baby-planet-smashes-record-for-youngest-known-world/" },
+    { "id": "record", "text": { "en": "The previous record holders are all more than 5 million years old." },
+      "quote": "which are all more than 5 million years old",
+      "quote_status": "extract from NASA Science release; check against the Space.com page",
+      "source": "https://science.nasa.gov/universe/newfound-baby-planet-smashes-record-for-youngest-known-world/" }
+  ],
+  "text": {
+    "intro": { "en": "A newborn planet is circling its star inside a disk of gas and dust. Hold to move it outward, release to let it fall inward. Collect gas, avoid the red flares, and reach the mass of Jupiter in 60 seconds." },
+    "controls": { "en": "Hold the Space bar, the mouse button or your finger." },
+    "start": { "en": "Start" },
+    "hold": { "en": "Hold to rise" },
+    "mass": { "en": "Mass" },
+    "time": { "en": "Time" },
+    "win": { "en": "You grew a Jupiter!" },
+    "timeup": { "en": "Time's up" },
+    "ofJupiter": { "en": "of Jupiter's mass" },
+    "canvas": { "en": "Game field: the planet orbits the star. Hold Space to move outward." }
+  },
+  "config": { "duration": 60, "goal": 100, "startMass": 8 }
+}
